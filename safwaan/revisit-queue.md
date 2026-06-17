@@ -13,3 +13,5 @@ Cold redo schedule — problems get a revisit date ~3 weeks after first solve.
 | Students and Examinations | #1280 | 2026-06-17 | 2026-07-08 | ⏳ |
 | Managers with at Least 5 Direct Reports | #570 | 2026-06-17 | 2026-07-08 | ⏳ |
 | Confirmation Rate | #1934 | 2026-06-17 | 2026-07-08 | ⏳ |
+| Not Boring Movies | #620 | 2026-06-17 | 2026-07-08 | ⏳ |
+| Average Selling Price | #1251 | 2026-06-17 | 2026-07-08 | ⏳ |

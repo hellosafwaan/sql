@@ -1,7 +1,7 @@
 # SQL Curriculum — LeetCode Database Track
 
 Goal: Interview-ready SQL (analytics + backend interview rounds)
-Total: 10 phases, ~60 problems
+Total: 10 phases, ~62 problems
 Dialect: MySQL (LeetCode's default) — flag dialect-specific syntax (e.g. `IFNULL` vs `COALESCE`, `DATEDIFF`) when it comes up.
 
 > Note: LeetCode occasionally renumbers or retires problems. If a link 404s, search the title on leetcode.com/problemset/database/ instead of guessing a new number.
@@ -52,6 +52,8 @@ Dialect: MySQL (LeetCode's default) — flag dialect-specific syntax (e.g. `IFNU
 | 4 | Employee Bonus | Easy | [LC #577](https://leetcode.com/problems/employee-bonus/) | LEFT JOIN + filter |
 | 5 | Managers with at Least 5 Direct Reports | Medium | [LC #570](https://leetcode.com/problems/managers-with-at-least-5-direct-reports/) | Self-JOIN + GROUP BY + HAVING |
 | 6 | Count Salary Categories | Medium | [LC #1907](https://leetcode.com/problems/count-salary-categories/) | CASE WHEN + GROUP BY (bucketing) |
+| — | Not Boring Movies *(bonus)* | Easy | [LC #620](https://leetcode.com/problems/not-boring-movies/) | WHERE + modulo + ORDER BY |
+| — | Average Selling Price *(bonus)* | Easy | [LC #1251](https://leetcode.com/problems/average-selling-price/) | LEFT JOIN + weighted average + COALESCE |
 
 ---
 

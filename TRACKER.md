@@ -12,8 +12,8 @@ Last updated: 2026-06-17
 ## Summary
 | Metric | Count |
 |--------|-------|
-| Total problems | 59 |
-| ✅ Complete | 9 |
+| Total problems | 61 |
+| ✅ Complete | 11 |
 | ⚠️ Needs revisit | 0 |
 | ⏳ Not started | 50 |
 
@@ -24,7 +24,7 @@ Last updated: 2026-06-17
 |---|-------|----------|------|-------------|--------|
 | 1 | SELECT Basics | 6 | 0 | TBD | ⏳ |
 | 2 | String & Date Functions | 5 | 1 | TBD | ⏳ |
-| 3 | Basic Aggregation Functions | 6 | 2 | TBD | ⏳ |
+| 3 | Basic Aggregation Functions | 6 | 4 | TBD | ⏳ |
 | 4 | Sorting and Grouping | 5 | 0 | TBD | ⏳ |
 | 5 | Basic Joins | 5 | 3 | TBD | ⏳ |
 | 6 | Advanced Select and Joins | 7 | 1 | TBD | ⏳ |
@@ -66,6 +66,8 @@ Last updated: 2026-06-17
 | 4 | Employee Bonus | Easy | [#577](https://leetcode.com/problems/employee-bonus/) | LEFT JOIN + filter | ✅ | 2026-06-17 | [learnings](queries/577-employee-bonus/learnings.md) |
 | 5 | Managers with at Least 5 Direct Reports | Medium | [#570](https://leetcode.com/problems/managers-with-at-least-5-direct-reports/) | Self-JOIN + GROUP BY + HAVING | ✅ | 2026-06-17 | [learnings](queries/570-managers-with-at-least-5-direct-reports/learnings.md) |
 | 6 | Count Salary Categories | Medium | [#1907](https://leetcode.com/problems/count-salary-categories/) | CASE WHEN + GROUP BY (bucketing) | ⏳ | — | — |
+| — | Not Boring Movies *(bonus)* | Easy | [#620](https://leetcode.com/problems/not-boring-movies/) | WHERE + modulo + ORDER BY | ✅ | 2026-06-17 | [learnings](queries/620-not-boring-movies/learnings.md) |
+| — | Average Selling Price *(bonus)* | Easy | [#1251](https://leetcode.com/problems/average-selling-price/) | LEFT JOIN + weighted average + COALESCE | ✅ | 2026-06-17 | [learnings](queries/1251-average-selling-price/learnings.md) |
 
 ## Phase 4 — Sorting and Grouping ⏳
 

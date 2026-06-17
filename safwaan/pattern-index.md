@@ -3,7 +3,7 @@
 Maps recurring patterns to the problems where they showed up. Check this at session start once today's problem is known — see CLAUDE.md's Pattern Recall protocol.
 
 ## WHERE / Filtering
-*(none yet)*
+- LC #620 — Not Boring Movies (WHERE + modulo for odd/even, `<>` vs `NOT LIKE` without wildcards)
 
 ## String Functions
 *(none yet)*
@@ -13,6 +13,7 @@ Maps recurring patterns to the problems where they showed up. Check this at sess
 - LC #1280 — Students and Examinations (GROUP BY all non-aggregated cols, COUNT(right_col))
 - LC #570 — Managers with 5 Direct Reports (HAVING on aggregate — WHERE vs HAVING distinction)
 - LC #1934 — Confirmation Rate (conditional aggregation: AVG(bool::integer), COALESCE for NULL fallback)
+- LC #1251 — Average Selling Price (weighted average: SUM(price×units)/SUM(units), WHERE-kills-LEFT-JOIN, ::numeric cast, COALESCE for no-sale products)
 
 ## Joins (INNER / LEFT / Self-join / Anti-join)
 - LC #1378 — Replace Employee ID (LEFT JOIN, NULL passthrough)
@@ -42,3 +43,7 @@ Maps recurring patterns to the problems where they showed up. Check this at sess
 ## PostgreSQL-specific
 - LC #1661 — ROUND(avg(...)::numeric, 3) — Postgres requires ::numeric cast for ROUND with decimal places
 - LC #197 — date + 1 works in LeetCode's PG mode; real Postgres needs INTERVAL '1 day'
+- LC #1251 — integer division truncates: SUM(int)/SUM(int) = int; cast numerator with ::numeric
+
+## Weighted Average
+- LC #1251 — Average Selling Price (SUM(value × weight) / SUM(weight); not AVG(col))

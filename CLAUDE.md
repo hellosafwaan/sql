@@ -65,10 +65,12 @@ Confirmed from DSA track:
 SQL-specific observations from real sessions:
 - JOIN intuition: INNER JOIN is the default first instinct, but self-corrects fast after seeing missing rows. Anti-join pattern (LEFT JOIN + IS NULL) internalized by the third rep — no longer needs prompting.
 - Role disambiguation in self-joins: reached for timestamp ordering first (fragile). Needed guided questions to land on "use the column that encodes the role." This insight is solid but fresh — probe cold on revisit.
-- GROUP BY completeness: not yet automatic. Wrote `GROUP BY subject_name` only when three columns were in SELECT. Watch for this on every aggregation problem until it becomes reflex.
+- GROUP BY completeness: not yet automatic. Hit 3 times (LC #1280, #570, #1251) — fires after the runtime error, not before. Probe explicitly before he runs next aggregation: "check your SELECT — any non-aggregated columns missing from GROUP BY?"
 - COUNT(col) vs COUNT(*): understands theory, raised it proactively. When it mattered in practice (LC #1280, zero-count rows), needed one nudge. Should become automatic after a few more reps.
-- PostgreSQL: hit `ROUND(double precision, integer)` error, learned `::numeric` cast. Now on his radar.
-- Session format: prefers to batch multiple problems in one sitting and wrap up all at the end.
+- PostgreSQL `::numeric` cast: hit in LC #1661 and again in LC #1251 — still not recalled automatically. Needs more reps.
+- WHERE-kills-LEFT-JOIN: new pattern from LC #1251. Putting a right-table filter in WHERE eliminates LEFT JOIN's null rows. Probe on next LEFT JOIN + date range problem.
+- Weighted average formula: `SUM(value * weight) / SUM(weight)` — first seen in LC #1251. Probe cold next time units/weights appear.
+- Session format: prefers to batch multiple problems in one sitting and wrap up all at the end. Wrap-up is user-triggered per batch.
 
 **Watch for, specific to SQL (update as sessions accumulate):**
 - NULL handling — `NULL = NULL` is not `TRUE`, `IS NULL`/`IS NOT NULL` not `= NULL`. Watch for this surfacing in Phase 1 (Find Customer Referee is designed to expose exactly this) and flag it as a concept, not a typo, the first time it bites. Not yet encountered in a WHERE filter context.

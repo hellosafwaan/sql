@@ -12,7 +12,7 @@ For full curriculum and problem status → [TRACKER.md](../TRACKER.md)
 
 ---
 
-## Recently Completed (2026-06-17 — Sessions 1–2)
+## Recently Completed (2026-06-17 — Sessions 1–3)
 - ✅ LC #1378 — Replace Employee ID With The Unique Identifier (Phase 2)
 - ✅ LC #1068 — Product Sales Analysis I (Phase 6)
 - ✅ LC #1581 — Customer Who Visited but Did Not Make Any Transactions (Phase 5)
@@ -22,6 +22,8 @@ For full curriculum and problem status → [TRACKER.md](../TRACKER.md)
 - ✅ LC #1280 — Students and Examinations (Phase 7)
 - ✅ LC #570 — Managers with at Least 5 Direct Reports (Phase 3)
 - ✅ LC #1934 — Confirmation Rate (bonus)
+- ✅ LC #620 — Not Boring Movies (bonus)
+- ✅ LC #1251 — Average Selling Price (bonus)
 
 ---
 

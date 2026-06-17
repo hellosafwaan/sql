@@ -1,51 +1,43 @@
-# Handoff — 2026-06-17 (Sessions 1–2, 9 problems)
+# Handoff — 2026-06-17 (Session 3, 2 problems)
 
 ## What Was Just Completed
 
-Full Basic Joins section of the LeetCode SQL 50, plus 2 bonus problems. 9 problems total across two batches.
+Basic Aggregate Functions (LeetCode SQL 50 section), first two problems.
 
 | Session | Problem | LC | Key Pattern |
 |---------|---------|-----|-------------|
-| 001 | Replace Employee ID | #1378 | LEFT JOIN, NULL passthrough |
-| 002 | Product Sales Analysis I | #1068 | INNER JOIN |
-| 003 | Customer Who Visited (No Transactions) | #1581 | Anti-join + GROUP BY |
-| 004 | Rising Temperature | #197 | Self-join on date offset |
-| 005 | Average Time of Process per Machine | #1661 | Self-join + role pinning |
-| 006 | Employee Bonus | #577 | Anti-join + OR filter |
-| 007 | Students and Examinations | #1280 | CROSS JOIN + LEFT JOIN + COUNT(col) |
-| 008 | Managers with at Least 5 Direct Reports | #570 | Self-join + GROUP BY + HAVING |
-| 009 | Confirmation Rate | #1934 | LEFT JOIN + conditional aggregation + COALESCE |
+| 010 | Not Boring Movies | #620 | WHERE + modulo + ORDER BY |
+| 011 | Average Selling Price | #1251 | Weighted average + WHERE-kills-LEFT-JOIN + ::numeric + COALESCE |
 
 ## Safwaan's Current State
 
 **Solid:**
 - INNER vs LEFT JOIN decision rule — automatic
-- Anti-join pattern (LEFT JOIN + WHERE IS NULL) — automatic, no prompting needed
+- Anti-join pattern (LEFT JOIN + WHERE IS NULL) — automatic
 - Self-join structure and alias pattern
 - CROSS JOIN for all-combinations base set
-- HAVING vs WHERE distinction — used correctly, may not be fully articulated yet
-- COALESCE — introduced, on his radar
+- HAVING vs WHERE distinction — used correctly
+- COALESCE — used with nudge, building
+- Weighted average formula — seen once (LC #1251), needs cold probe
 
 **Gaps to probe next session:**
-- GROUP BY completeness — hit this error twice today (LC #1280 and #570). Will it be automatic next time?
-- CASE WHEN — not yet encountered. Introduce it next time conditional aggregation comes up.
-- HAVING vs WHERE — probe: "why can't you put COUNT(...) >= 5 in WHERE?"
-- COUNT(col = 'value') trap — confirm he understands why it doesn't work
-- Role pinning cold recall — can he explain the LC #1661 lesson from scratch?
+- **GROUP BY completeness** — three occurrences now (LC #1280, #570, #1251). Still fires after runtime error, not before. Must become pre-flight check.
+- **WHERE-kills-LEFT-JOIN** — first occurrence in LC #1251. Will he catch it independently next time?
+- **::numeric cast** — not recalled unprompted in LC #1251 (second encounter). Needs more reps.
+- **CASE WHEN** — still not encountered. Introduce it the moment conditional aggregation comes up.
+- **Weighted average formula** — probe: "if I asked you to compute average price per unit sold, what aggregation formula would you use?"
 
 ## Suggested Next Problems
 
-LeetCode SQL 50 continues with "Basic Aggregation" section:
-- LC #1251 — Average Selling Price
-- LC #1075 — Project Employees I
-- LC #1633 — Percentage of Users Attended a Contest
-- LC #1211 — Queries Quality and Percentage
-
-Or pick up the curriculum where it's missing coverage — Phases 1–2 (SELECT basics, string functions) are untouched.
+Continuing Basic Aggregate Functions (LeetCode SQL 50):
+- LC #1075 — Project Employees I (JOIN + AVG, good rounding rep)
+- LC #1633 — Percentage of Users Attended a Contest (GROUP BY + COUNT fraction)
+- LC #1211 — Queries Quality and Percentage (CASE WHEN will be natural here — ideal introduction point)
+- LC #1193 — Monthly Transactions I (conditional aggregation — CASE WHEN)
 
 ## Coach Notes
 
-- Strong first day overall. JOIN patterns are clearly clicking.
-- GROUP BY completeness is the main mechanical gap — watch for it every time aggregation appears.
-- CASE WHEN is the most important thing not yet seen. Introduce it the moment it's relevant rather than offering the Postgres boolean shortcut again.
-- Prefers to batch problems in one session and wrap up at the end — format is working well.
+- GROUP BY is the most urgent mechanical fix. Consider probing it explicitly before Safwaan runs next time: "Before you run — check your SELECT. Any non-aggregated columns missing from GROUP BY?"
+- LC #1211 (Queries Quality and Percentage) is the ideal CASE WHEN introduction — the problem naturally invites it.
+- The WHERE-kills-LEFT-JOIN pattern is high-value and easy to miss silently. Worth flagging if it comes up without error.
+- Safwaan's self-correction is improving — he caught GROUP BY himself from the error message in LC #1251. The goal is catching it before running.

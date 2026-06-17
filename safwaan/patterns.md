@@ -14,8 +14,20 @@ Wrote `GROUP BY subjects.subject_name` when SELECT had `student_id`, `student_na
 ### COUNT(left_table.col) instead of COUNT(right_table.col) (2026-06-17, LC #1280)
 Used `COUNT(students.student_id)` which is never NULL → always counts at least 1, even for students who never attended. Fixed to `COUNT(examinations.student_id)` which is NULL for unmatched rows → correctly returns 0. Had already articulated this distinction theoretically in LC #1581; needed a nudge to apply it in practice.
 
-### GROUP BY completeness — recurring (2026-06-17, LC #1280 and LC #570)
-Hit the same error twice in the same session: SELECT includes a non-aggregated column that's missing from GROUP BY. Postgres runtime error catches it both times. Not yet automatic — needs more reps before it becomes reflex.
+### GROUP BY completeness — recurring (2026-06-17, LC #1280, LC #570, LC #1251)
+Hit this error three times across two sessions. SELECT includes a non-aggregated column that's missing from GROUP BY. Postgres runtime error catches it each time. Still not automatic before running — must become reflex.
+
+### LIKE without wildcards = exact match (2026-06-17, LC #620)
+Used `NOT LIKE 'boring'` expecting it to exclude rows where description *contains* "boring". LIKE without `%` or `_` is an exact string match — identical to `<> 'boring'`. Both queries actually pass; the mental model was the issue. For a "contains" check: `LIKE '%value%'`.
+
+### WHERE filter on right-table column kills LEFT JOIN (2026-06-17, LC #1251)
+Added LEFT JOIN to preserve products with no sales, then put BETWEEN in WHERE. WHERE filters happen after the join — NULL rows from unmatched products fail the BETWEEN condition and get dropped. Effectively turns LEFT JOIN back into INNER JOIN. Fix: move the filter into the ON clause.
+
+### Weighted average ≠ AVG(col) (2026-06-17, LC #1251)
+Used `AVG(price * units)` then `AVG(price)` — both wrong. The average price per unit is `SUM(price * units) / SUM(units)` — total revenue divided by total units. Clicked after the concrete example: 100 units at $5 and 1 unit at $10 gives ~$5.09, not $7.50.
+
+### Integer division / ::numeric — still not instinctive (2026-06-17, LC #1251)
+Hit the same Postgres integer division issue as LC #1934. Didn't recall the `::numeric` fix unprompted — needed the direct answer again. Pattern not yet automatic.
 
 ### COUNT(col = 'value') doesn't do what you think (2026-06-17, LC #1934)
 Used `COUNT(action = 'confirmed')` expecting it to count only confirmed rows. COUNT ignores boolean truth — it only checks non-NULL. The fix: `AVG((col = 'value')::integer)` for a fraction, or `SUM(CASE WHEN col = 'value' THEN 1 ELSE 0 END)` for a count.
@@ -44,7 +56,9 @@ Articulated the rule clearly after LC #1068: "Do I need rows with no match, or o
 - INNER vs LEFT JOIN decision rule
 
 ## What's Still Developing
-- GROUP BY completeness — hit this error twice in one session (LC #1280 and #570). Must become reflex.
+- GROUP BY completeness — hit this error three times (LC #1280, #570, #1251). Must become reflex.
 - CASE WHEN — not yet encountered. Next time conditional aggregation comes up, introduce it properly.
-- PostgreSQL-specific syntax: `::numeric`, `::integer`, `INTERVAL '1 day'`, `COALESCE` — accumulating, needs reps
+- PostgreSQL-specific syntax: `::numeric` cast — hit again in LC #1251, still not recalled automatically
 - Role pinning in self-joins — correct but took guided questions to arrive at; worth a cold revisit
+- WHERE-kills-LEFT-JOIN — new pattern from LC #1251, only seen once. Probe next time a LEFT JOIN + date filter appears.
+- Weighted average formula — seen once in LC #1251. Probe cold next time units/weights appear in aggregation.
