@@ -26,6 +26,7 @@ For full curriculum and problem status → [TRACKER.md](../TRACKER.md)
 - ✅ LC #1251 — Average Selling Price (bonus)
 - ✅ LC #1075 — Project Employees I (Phase 6)
 - ✅ LC #1633 — Percentage of Users Attended a Contest (bonus)
+- ✅ LC #1211 — Queries Quality and Percentage (bonus)
 
 ---
 

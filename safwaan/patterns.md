@@ -32,8 +32,8 @@ Used `AVG(price * units)` then `AVG(price)` — both wrong. The average price pe
 ### Integer division / ::numeric — still not instinctive (2026-06-17, LC #1251)
 Hit the same Postgres integer division issue as LC #1934. Didn't recall the `::numeric` fix unprompted — needed the direct answer again. Pattern not yet automatic.
 
-### COUNT(col = 'value') doesn't do what you think (2026-06-17, LC #1934)
-Used `COUNT(action = 'confirmed')` expecting it to count only confirmed rows. COUNT ignores boolean truth — it only checks non-NULL. The fix: `AVG((col = 'value')::integer)` for a fraction, or `SUM(CASE WHEN col = 'value' THEN 1 ELSE 0 END)` for a count.
+### COUNT(col = 'value') doesn't do what you think (2026-06-17, LC #1934, LC #1211)
+Used `COUNT(action = 'confirmed')` and `COUNT(rating < 3)` expecting them to count only matching rows. COUNT ignores boolean truth — it only checks non-NULL. Boolean expressions never return NULL, so COUNT counts every row. The fix: `SUM(CASE WHEN condition THEN 1 ELSE 0 END)`. Second encounter in LC #1211 — still not recalled automatically.
 
 ---
 

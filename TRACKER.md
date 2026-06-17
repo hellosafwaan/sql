@@ -12,8 +12,8 @@ Last updated: 2026-06-17
 ## Summary
 | Metric | Count |
 |--------|-------|
-| Total problems | 62 |
-| ✅ Complete | 13 |
+| Total problems | 63 |
+| ✅ Complete | 14 |
 | ⚠️ Needs revisit | 0 |
 | ⏳ Not started | 49 |
 
@@ -69,6 +69,7 @@ Last updated: 2026-06-17
 | — | Not Boring Movies *(bonus)* | Easy | [#620](https://leetcode.com/problems/not-boring-movies/) | WHERE + modulo + ORDER BY | ✅ | 2026-06-17 | [learnings](queries/620-not-boring-movies/learnings.md) |
 | — | Average Selling Price *(bonus)* | Easy | [#1251](https://leetcode.com/problems/average-selling-price/) | LEFT JOIN + weighted average + COALESCE | ✅ | 2026-06-17 | [learnings](queries/1251-average-selling-price/learnings.md) |
 | — | Percentage of Users Attended a Contest *(bonus)* | Easy | [#1633](https://leetcode.com/problems/percentage-of-users-attended-a-contest/) | GROUP BY + scalar subquery denominator | ✅ | 2026-06-17 | [learnings](queries/1633-percentage-of-users-attended-a-contest/learnings.md) |
+| — | Queries Quality and Percentage *(bonus)* | Easy | [#1211](https://leetcode.com/problems/queries-quality-and-percentage/) | CASE WHEN + conditional aggregation + ::numeric | ✅ | 2026-06-17 | [learnings](queries/1211-queries-quality-and-percentage/learnings.md) |
 
 ## Phase 4 — Sorting and Grouping ⏳
 

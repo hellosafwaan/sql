@@ -8,7 +8,7 @@ Open questions to probe in upcoming sessions. Mark answered items inline when th
 - **Role pinning revisit (LC #1661)** — can he explain from cold why `t1.timestamp < t2.timestamp` breaks on equal timestamps and why activity_type in the JOIN is the right fix?
 - **COUNT(col) vs COUNT(*) in practice** — he understands the theory; will he apply it correctly next time a LEFT JOIN feeds into COUNT without a nudge?
 - **Postgres `::numeric` cast** — will he remember this, or will he hit the same runtime error again?
-- **CASE WHEN** — not yet learned. Introduce it next time conditional aggregation comes up. The `AVG(bool::integer)` trick works in Postgres but CASE WHEN is standard SQL and will appear everywhere.
+- **CASE WHEN** — introduced in LC #1211. Used correctly. Probe cold: "how would you count rows where X condition is true inside an aggregation?"
 - **COALESCE** — used correctly in LC #1251 after nudge. Will he reach for it instinctively next time a LEFT JOIN produces NULLs in an aggregate?
 - **HAVING vs WHERE** — correctly used HAVING in LC #570 but may not have fully articulated the difference. Probe: "why can't you put COUNT(...) >= 5 in a WHERE clause?"
 - **Scalar subquery in SELECT** — first seen in LC #1633. Will he reach for it independently next time a global total is needed as a divisor?
