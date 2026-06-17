@@ -54,19 +54,26 @@ Safwaan is a self-directed learner. He's already deep into a NeetCode 150 DSA cu
 
 ## Expertise Calibration
 
-**Starting state: no SQL session data yet.** This section should be filled in as real sessions happen — don't pre-fill assumptions about his SQL ability. What carries over from the DSA track (see `algorithms/safwaan/identity.md` if useful context, but don't assume it transfers 1:1 to SQL):
+**Updated after Session 1 (2026-06-17, 7 problems — LC #1378, #1068, #1581, #197, #1661, #577, #1280):**
 
-- Bottom-up thinker — wants to understand *why* a query works, not just that it returns the right rows
-- Learns best from concrete traces — for SQL this likely means tracing what an intermediate result set looks like after each clause (after the JOIN, after the GROUP BY, after the HAVING), not just the final output
-- Strong metacognition — will say when he's stuck and why
-- Catches his own bugs when asked the right question
-- Pushes back on impractical or hand-wavy approaches — engage seriously, he's usually onto something
+Confirmed from DSA track:
+- Bottom-up thinker — explains the *why* out loud before writing, often arriving at the correct approach through reasoning rather than trial-and-error
+- Learns best from concrete traces — asking "what rows do you have after the JOIN?" consistently unblocks him
+- Strong metacognition — says when he's stuck and why; catches his own bugs when asked the right question
+- Pushes back seriously — when he asked "OR?" during LC #1661, he was onto the right instinct (combine conditions) even if not the right form
+
+SQL-specific observations from real sessions:
+- JOIN intuition: INNER JOIN is the default first instinct, but self-corrects fast after seeing missing rows. Anti-join pattern (LEFT JOIN + IS NULL) internalized by the third rep — no longer needs prompting.
+- Role disambiguation in self-joins: reached for timestamp ordering first (fragile). Needed guided questions to land on "use the column that encodes the role." This insight is solid but fresh — probe cold on revisit.
+- GROUP BY completeness: not yet automatic. Wrote `GROUP BY subject_name` only when three columns were in SELECT. Watch for this on every aggregation problem until it becomes reflex.
+- COUNT(col) vs COUNT(*): understands theory, raised it proactively. When it mattered in practice (LC #1280, zero-count rows), needed one nudge. Should become automatic after a few more reps.
+- PostgreSQL: hit `ROUND(double precision, integer)` error, learned `::numeric` cast. Now on his radar.
+- Session format: prefers to batch multiple problems in one sitting and wrap up all at the end.
 
 **Watch for, specific to SQL (update as sessions accumulate):**
-- NULL handling is a classic blind spot for everyone moving from imperative languages to SQL — `NULL = NULL` is not `TRUE`, `COUNT(col)` skips NULLs but `COUNT(*)` doesn't, `IS NULL`/`IS NOT NULL` not `= NULL`. Watch for this surfacing in Phase 1 (Find Customer Referee is designed to expose exactly this) and flag it as a concept, not a typo, the first time it bites.
-- LEFT JOIN vs INNER JOIN confusion when the question is "find X with no matching Y" (anti-join pattern) — the instinct is often to reach for a subquery first. Both are valid; ask which he'd reach for and why.
-- GROUP BY + HAVING vs GROUP BY + WHERE — WHERE filters rows before grouping, HAVING filters groups after. This is a common first-pass bug (filtering an aggregate in WHERE, which errors or silently does the wrong thing depending on dialect).
-- Window functions (Phase 8) will likely feel like a new mental model entirely — PARTITION BY is not GROUP BY (it doesn't collapse rows). Expect this to need a trace-table-style walkthrough, similar to what worked for bit-shift ordering confusion in the DSA track.
+- NULL handling — `NULL = NULL` is not `TRUE`, `IS NULL`/`IS NOT NULL` not `= NULL`. Watch for this surfacing in Phase 1 (Find Customer Referee is designed to expose exactly this) and flag it as a concept, not a typo, the first time it bites. Not yet encountered in a WHERE filter context.
+- GROUP BY + HAVING vs GROUP BY + WHERE — WHERE filters rows before grouping, HAVING filters groups after. This is a common first-pass bug (filtering an aggregate in WHERE). Not yet encountered.
+- Window functions (Phase 8) will likely feel like a new mental model entirely — PARTITION BY is not GROUP BY (it doesn't collapse rows). Expect this to need a trace-table-style walkthrough.
 
 ## Core Rules
 
@@ -80,7 +87,12 @@ Safwaan is a self-directed learner. He's already deep into a NeetCode 150 DSA cu
 
 ## What He's Already Internalized — Don't Re-explain
 
-*(empty — populate as sessions happen, same as the DSA track's CLAUDE.md does)*
+- INNER vs LEFT JOIN decision rule: "do I need rows with no match, or only rows that match?"
+- Anti-join pattern: LEFT JOIN + WHERE right_col IS NULL — applied automatically, no explanation needed
+- Self-join structure: alias pattern, pairing rows via shifted key
+- CROSS JOIN for all-combinations base set
+- COUNT(col) skips NULLs, COUNT(*) does not — he's demonstrated this conceptually, just needs one nudge to apply in practice
+- `::numeric` cast needed for ROUND in Postgres with decimal places
 
 ## Tone
 

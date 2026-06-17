@@ -1,6 +1,6 @@
 # SQL Master Tracker
 
-Last updated: 2026-06-16 (scaffold created, no problems attempted yet)
+Last updated: 2026-06-17
 
 ## Pace
 **Target:** TBD — set once first few sessions establish a rhythm
@@ -12,10 +12,10 @@ Last updated: 2026-06-16 (scaffold created, no problems attempted yet)
 ## Summary
 | Metric | Count |
 |--------|-------|
-| Total problems | 58 |
-| ✅ Complete | 0 |
+| Total problems | 59 |
+| ✅ Complete | 9 |
 | ⚠️ Needs revisit | 0 |
-| ⏳ Not started | 58 |
+| ⏳ Not started | 50 |
 
 ---
 
@@ -23,12 +23,12 @@ Last updated: 2026-06-16 (scaffold created, no problems attempted yet)
 | # | Phase | Problems | Done | Target Date | Status |
 |---|-------|----------|------|-------------|--------|
 | 1 | SELECT Basics | 6 | 0 | TBD | ⏳ |
-| 2 | String & Date Functions | 5 | 0 | TBD | ⏳ |
-| 3 | Basic Aggregation Functions | 6 | 0 | TBD | ⏳ |
+| 2 | String & Date Functions | 5 | 1 | TBD | ⏳ |
+| 3 | Basic Aggregation Functions | 6 | 2 | TBD | ⏳ |
 | 4 | Sorting and Grouping | 5 | 0 | TBD | ⏳ |
-| 5 | Basic Joins | 5 | 0 | TBD | ⏳ |
-| 6 | Advanced Select and Joins | 7 | 0 | TBD | ⏳ |
-| 7 | Subqueries | 6 | 0 | TBD | ⏳ |
+| 5 | Basic Joins | 5 | 3 | TBD | ⏳ |
+| 6 | Advanced Select and Joins | 7 | 1 | TBD | ⏳ |
+| 7 | Subqueries | 6 | 1 | TBD | ⏳ |
 | 8 | Window Functions | 6 | 0 | TBD | ⏳ |
 | 9 | Date/Time & Pivoting | 5 | 0 | TBD | ⏳ |
 | 10 | Mixed / Hard Practice | 7 | 0 | TBD | ⏳ |
@@ -54,7 +54,7 @@ Last updated: 2026-06-16 (scaffold created, no problems attempted yet)
 | 2 | Patients With a Condition | Easy | [#1527](https://leetcode.com/problems/patients-with-a-condition/) | LIKE pattern matching | ⏳ | — | — |
 | 3 | Find Users With Valid E-Mails | Easy | [#1517](https://leetcode.com/problems/find-users-with-valid-emails/) | REGEXP | ⏳ | — | — |
 | 4 | Calculate Special Bonus | Easy | [#1873](https://leetcode.com/problems/calculate-special-bonus/) | CASE WHEN | ⏳ | — | — |
-| 5 | Replace Employee ID With The Unique Identifier | Easy | [#1378](https://leetcode.com/problems/replace-employee-id-with-the-unique-identifier/) | LEFT JOIN, NULL passthrough | ⏳ | — | — |
+| 5 | Replace Employee ID With The Unique Identifier | Easy | [#1378](https://leetcode.com/problems/replace-employee-id-with-the-unique-identifier/) | LEFT JOIN, NULL passthrough | ✅ | 2026-06-17 | [learnings](queries/1378-replace-employee-id-with-the-unique-identifier/learnings.md) |
 
 ## Phase 3 — Basic Aggregation Functions ⏳
 
@@ -63,8 +63,8 @@ Last updated: 2026-06-16 (scaffold created, no problems attempted yet)
 | 1 | Find Total Time Spent by Each Employee | Easy | [#1741](https://leetcode.com/problems/find-total-time-spent-by-each-employee/) | GROUP BY + SUM | ⏳ | — | — |
 | 2 | Classes More Than 5 Students | Easy | [#596](https://leetcode.com/problems/classes-more-than-5-students/) | GROUP BY + HAVING | ⏳ | — | — |
 | 3 | Customer Placing the Largest Number of Orders | Easy | [#586](https://leetcode.com/problems/customer-placing-the-largest-number-of-orders/) | GROUP BY + ORDER BY + LIMIT | ⏳ | — | — |
-| 4 | Employee Bonus | Easy | [#577](https://leetcode.com/problems/employee-bonus/) | LEFT JOIN + filter | ⏳ | — | — |
-| 5 | Managers with at Least 5 Direct Reports | Medium | [#570](https://leetcode.com/problems/managers-with-at-least-5-direct-reports/) | Self-JOIN + GROUP BY + HAVING | ⏳ | — | — |
+| 4 | Employee Bonus | Easy | [#577](https://leetcode.com/problems/employee-bonus/) | LEFT JOIN + filter | ✅ | 2026-06-17 | [learnings](queries/577-employee-bonus/learnings.md) |
+| 5 | Managers with at Least 5 Direct Reports | Medium | [#570](https://leetcode.com/problems/managers-with-at-least-5-direct-reports/) | Self-JOIN + GROUP BY + HAVING | ✅ | 2026-06-17 | [learnings](queries/570-managers-with-at-least-5-direct-reports/learnings.md) |
 | 6 | Count Salary Categories | Medium | [#1907](https://leetcode.com/problems/count-salary-categories/) | CASE WHEN + GROUP BY (bucketing) | ⏳ | — | — |
 
 ## Phase 4 — Sorting and Grouping ⏳
@@ -83,15 +83,16 @@ Last updated: 2026-06-16 (scaffold created, no problems attempted yet)
 |---|---------|------------|----|---------|--------|--------|-----------|
 | 1 | Customers Who Never Order | Easy | [#183](https://leetcode.com/problems/customers-who-never-order/) | Anti-join (LEFT JOIN ... WHERE NULL / NOT IN) | ⏳ | — | — |
 | 2 | Sales Person | Easy | [#607](https://leetcode.com/problems/sales-person/) | Multi-table JOIN + NOT IN | ⏳ | — | — |
-| 3 | Rising Temperature | Easy | [#197](https://leetcode.com/problems/rising-temperature/) | Self-JOIN on date offset | ⏳ | — | — |
-| 4 | Average Time of Process per Machine | Easy | [#1661](https://leetcode.com/problems/average-time-of-process-per-machine/) | Self-JOIN, start/end pairing | ⏳ | — | — |
-| 5 | Customer Who Visited but Did Not Make Any Transactions | Easy | [#1581](https://leetcode.com/problems/customer-who-visited-but-did-not-make-any-transactions/) | Anti-join + GROUP BY | ⏳ | — | — |
+| 3 | Rising Temperature | Easy | [#197](https://leetcode.com/problems/rising-temperature/) | Self-JOIN on date offset | ✅ | 2026-06-17 | [learnings](queries/197-rising-temperature/learnings.md) |
+| 4 | Average Time of Process per Machine | Easy | [#1661](https://leetcode.com/problems/average-time-of-process-per-machine/) | Self-JOIN, start/end pairing | ✅ | 2026-06-17 | [learnings](queries/1661-average-time-of-process-per-machine/learnings.md) |
+| 5 | Customer Who Visited but Did Not Make Any Transactions | Easy | [#1581](https://leetcode.com/problems/customer-who-visited-but-did-not-make-any-transactions/) | Anti-join + GROUP BY | ✅ | 2026-06-17 | [learnings](queries/1581-customer-who-visited-but-did-not-make-any-transactions/learnings.md) |
+| — | Confirmation Rate *(bonus)* | Medium | [#1934](https://leetcode.com/problems/confirmation-rate/) | LEFT JOIN + conditional aggregation + COALESCE | ✅ | 2026-06-17 | [learnings](queries/1934-confirmation-rate/learnings.md) |
 
 ## Phase 6 — Advanced Select and Joins ⏳
 
 | # | Problem | Difficulty | LC | Pattern | Status | Solved | Learnings |
 |---|---------|------------|----|---------|--------|--------|-----------|
-| 1 | Product Sales Analysis I | Easy | [#1068](https://leetcode.com/problems/product-sales-analysis-i/) | JOIN | ⏳ | — | — |
+| 1 | Product Sales Analysis I | Easy | [#1068](https://leetcode.com/problems/product-sales-analysis-i/) | JOIN | ✅ | 2026-06-17 | [learnings](queries/1068-product-sales-analysis-i/learnings.md) |
 | 2 | Product Sales Analysis III | Medium | [#1070](https://leetcode.com/problems/product-sales-analysis-iii/) | JOIN + first-occurrence filter | ⏳ | — | — |
 | 3 | Project Employees I | Easy | [#1075](https://leetcode.com/problems/project-employees-i/) | JOIN + AVG, rounding | ⏳ | — | — |
 | 4 | Project Employees III | Medium | [#1077](https://leetcode.com/problems/project-employees-iii/) | JOIN + top-N-per-group | ⏳ | — | — |
@@ -108,7 +109,7 @@ Last updated: 2026-06-16 (scaffold created, no problems attempted yet)
 | 3 | Investments in 2016 | Medium | [#585](https://leetcode.com/problems/investments-in-2016/) | Subquery with multiple conditions | ⏳ | — | — |
 | 4 | Triangle Judgement | Easy | [#610](https://leetcode.com/problems/triangle-judgement/) | CASE WHEN, no subquery needed (control) | ⏳ | — | — |
 | 5 | Consecutive Numbers | Medium | [#180](https://leetcode.com/problems/consecutive-numbers/) | Self-JOIN on row offset | ⏳ | — | — |
-| 6 | Students and Examinations | Medium | [#1280](https://leetcode.com/problems/students-and-examinations/) | CROSS JOIN + LEFT JOIN + GROUP BY | ⏳ | — | — |
+| 6 | Students and Examinations | Medium | [#1280](https://leetcode.com/problems/students-and-examinations/) | CROSS JOIN + LEFT JOIN + GROUP BY | ✅ | 2026-06-17 | [learnings](queries/1280-students-and-examinations/learnings.md) |
 
 ## Phase 8 — Window Functions ⏳
 

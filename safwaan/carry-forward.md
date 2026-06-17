@@ -2,4 +2,12 @@
 
 Open questions to probe in upcoming sessions. Mark answered items inline when they come up.
 
-*(empty — populate as sessions happen)*
+## Open
+
+- **GROUP BY completeness** — will he write complete GROUP BY automatically on the next aggregation problem, or will he still omit non-aggregated columns? Watch for this.
+- **Role pinning revisit (LC #1661)** — can he explain from cold why `t1.timestamp < t2.timestamp` breaks on equal timestamps and why activity_type in the JOIN is the right fix?
+- **COUNT(col) vs COUNT(*) in practice** — he understands the theory; will he apply it correctly next time a LEFT JOIN feeds into COUNT without a nudge?
+- **Postgres `::numeric` cast** — will he remember this, or will he hit the same runtime error again?
+- **CASE WHEN** — not yet learned. Introduce it next time conditional aggregation comes up. The `AVG(bool::integer)` trick works in Postgres but CASE WHEN is standard SQL and will appear everywhere.
+- **COALESCE** — introduced in LC #1934. Will he reach for it instinctively next time a LEFT JOIN produces NULLs in an aggregate?
+- **HAVING vs WHERE** — correctly used HAVING in LC #570 but may not have fully articulated the difference. Probe: "why can't you put COUNT(...) >= 5 in a WHERE clause?"
