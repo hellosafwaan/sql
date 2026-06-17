@@ -13,9 +13,9 @@ Last updated: 2026-06-17
 | Metric | Count |
 |--------|-------|
 | Total problems | 61 |
-| ✅ Complete | 11 |
+| ✅ Complete | 12 |
 | ⚠️ Needs revisit | 0 |
-| ⏳ Not started | 50 |
+| ⏳ Not started | 49 |
 
 ---
 
@@ -27,7 +27,7 @@ Last updated: 2026-06-17
 | 3 | Basic Aggregation Functions | 6 | 4 | TBD | ⏳ |
 | 4 | Sorting and Grouping | 5 | 0 | TBD | ⏳ |
 | 5 | Basic Joins | 5 | 3 | TBD | ⏳ |
-| 6 | Advanced Select and Joins | 7 | 1 | TBD | ⏳ |
+| 6 | Advanced Select and Joins | 7 | 2 | TBD | ⏳ |
 | 7 | Subqueries | 6 | 1 | TBD | ⏳ |
 | 8 | Window Functions | 6 | 0 | TBD | ⏳ |
 | 9 | Date/Time & Pivoting | 5 | 0 | TBD | ⏳ |
@@ -96,7 +96,7 @@ Last updated: 2026-06-17
 |---|---------|------------|----|---------|--------|--------|-----------|
 | 1 | Product Sales Analysis I | Easy | [#1068](https://leetcode.com/problems/product-sales-analysis-i/) | JOIN | ✅ | 2026-06-17 | [learnings](queries/1068-product-sales-analysis-i/learnings.md) |
 | 2 | Product Sales Analysis III | Medium | [#1070](https://leetcode.com/problems/product-sales-analysis-iii/) | JOIN + first-occurrence filter | ⏳ | — | — |
-| 3 | Project Employees I | Easy | [#1075](https://leetcode.com/problems/project-employees-i/) | JOIN + AVG, rounding | ⏳ | — | — |
+| 3 | Project Employees I | Easy | [#1075](https://leetcode.com/problems/project-employees-i/) | JOIN + AVG, rounding | ✅ | 2026-06-17 | [learnings](queries/1075-project-employees-i/learnings.md) |
 | 4 | Project Employees III | Medium | [#1077](https://leetcode.com/problems/project-employees-iii/) | JOIN + top-N-per-group | ⏳ | — | — |
 | 5 | Sales Analysis I | Easy | [#1082](https://leetcode.com/problems/sales-analysis-i/) | JOIN + aggregation | ⏳ | — | — |
 | 6 | Sales Analysis III | Easy | [#1084](https://leetcode.com/problems/sales-analysis-iii/) | JOIN + date range filter | ⏳ | — | — |

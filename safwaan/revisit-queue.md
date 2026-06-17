@@ -15,3 +15,4 @@ Cold redo schedule — problems get a revisit date ~3 weeks after first solve.
 | Confirmation Rate | #1934 | 2026-06-17 | 2026-07-08 | ⏳ |
 | Not Boring Movies | #620 | 2026-06-17 | 2026-07-08 | ⏳ |
 | Average Selling Price | #1251 | 2026-06-17 | 2026-07-08 | ⏳ |
+| Project Employees I | #1075 | 2026-06-17 | 2026-07-08 | ⏳ |

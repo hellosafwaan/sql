@@ -14,6 +14,7 @@ Maps recurring patterns to the problems where they showed up. Check this at sess
 - LC #570 — Managers with 5 Direct Reports (HAVING on aggregate — WHERE vs HAVING distinction)
 - LC #1934 — Confirmation Rate (conditional aggregation: AVG(bool::integer), COALESCE for NULL fallback)
 - LC #1251 — Average Selling Price (weighted average: SUM(price×units)/SUM(units), WHERE-kills-LEFT-JOIN, ::numeric cast, COALESCE for no-sale products)
+- LC #1075 — Project Employees I (AVG(int) returns numeric in Postgres — no ::numeric needed; GROUP BY included pre-emptively first time)
 
 ## Joins (INNER / LEFT / Self-join / Anti-join)
 - LC #1378 — Replace Employee ID (LEFT JOIN, NULL passthrough)

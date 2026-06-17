@@ -4,7 +4,7 @@ Open questions to probe in upcoming sessions. Mark answered items inline when th
 
 ## Open
 
-- **GROUP BY completeness** — will he write complete GROUP BY automatically on the next aggregation problem, or will he still omit non-aggregated columns? Watch for this.
+- **GROUP BY completeness** — included pre-emptively for the first time in LC #1075 (no runtime error needed). Watch whether this holds consistently going forward.
 - **Role pinning revisit (LC #1661)** — can he explain from cold why `t1.timestamp < t2.timestamp` breaks on equal timestamps and why activity_type in the JOIN is the right fix?
 - **COUNT(col) vs COUNT(*) in practice** — he understands the theory; will he apply it correctly next time a LEFT JOIN feeds into COUNT without a nudge?
 - **Postgres `::numeric` cast** — will he remember this, or will he hit the same runtime error again?
