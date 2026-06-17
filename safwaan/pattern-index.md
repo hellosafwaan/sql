@@ -29,7 +29,7 @@ Maps recurring patterns to the problems where they showed up. Check this at sess
 - LC #1280 — Students and Examinations (all-combinations base set)
 
 ## Subqueries (scalar / correlated / EXISTS)
-*(none yet)*
+- LC #1633 — Percentage of Users Attended a Contest (scalar subquery in SELECT as global denominator)
 
 ## Window Functions
 *(none yet)*

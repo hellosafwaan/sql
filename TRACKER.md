@@ -12,8 +12,8 @@ Last updated: 2026-06-17
 ## Summary
 | Metric | Count |
 |--------|-------|
-| Total problems | 61 |
-| ✅ Complete | 12 |
+| Total problems | 62 |
+| ✅ Complete | 13 |
 | ⚠️ Needs revisit | 0 |
 | ⏳ Not started | 49 |
 
@@ -68,6 +68,7 @@ Last updated: 2026-06-17
 | 6 | Count Salary Categories | Medium | [#1907](https://leetcode.com/problems/count-salary-categories/) | CASE WHEN + GROUP BY (bucketing) | ⏳ | — | — |
 | — | Not Boring Movies *(bonus)* | Easy | [#620](https://leetcode.com/problems/not-boring-movies/) | WHERE + modulo + ORDER BY | ✅ | 2026-06-17 | [learnings](queries/620-not-boring-movies/learnings.md) |
 | — | Average Selling Price *(bonus)* | Easy | [#1251](https://leetcode.com/problems/average-selling-price/) | LEFT JOIN + weighted average + COALESCE | ✅ | 2026-06-17 | [learnings](queries/1251-average-selling-price/learnings.md) |
+| — | Percentage of Users Attended a Contest *(bonus)* | Easy | [#1633](https://leetcode.com/problems/percentage-of-users-attended-a-contest/) | GROUP BY + scalar subquery denominator | ✅ | 2026-06-17 | [learnings](queries/1633-percentage-of-users-attended-a-contest/learnings.md) |
 
 ## Phase 4 — Sorting and Grouping ⏳
 

@@ -54,6 +54,7 @@ Dialect: MySQL (LeetCode's default) — flag dialect-specific syntax (e.g. `IFNU
 | 6 | Count Salary Categories | Medium | [LC #1907](https://leetcode.com/problems/count-salary-categories/) | CASE WHEN + GROUP BY (bucketing) |
 | — | Not Boring Movies *(bonus)* | Easy | [LC #620](https://leetcode.com/problems/not-boring-movies/) | WHERE + modulo + ORDER BY |
 | — | Average Selling Price *(bonus)* | Easy | [LC #1251](https://leetcode.com/problems/average-selling-price/) | LEFT JOIN + weighted average + COALESCE |
+| — | Percentage of Users Attended a Contest *(bonus)* | Easy | [LC #1633](https://leetcode.com/problems/percentage-of-users-attended-a-contest/) | GROUP BY + scalar subquery denominator |
 
 ---
 

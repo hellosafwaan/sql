@@ -17,6 +17,9 @@ Used `COUNT(students.student_id)` which is never NULL → always counts at least
 ### GROUP BY completeness — recurring (2026-06-17, LC #1280, LC #570, LC #1251)
 Hit this error three times across two sessions. SELECT includes a non-aggregated column that's missing from GROUP BY. Postgres runtime error catches it each time. Still not automatic before running — must become reflex.
 
+### Over-joining when a subquery suffices (2026-06-17, LC #1633)
+Reached for LEFT JOIN users + register to get unregistered users as NULLs. But the output was per contest — unregistered users don't appear at all. They only affect the denominator, which a scalar subquery handles cleanly. Fix: query Register directly, use `(SELECT COUNT(*) FROM users)` for the total. Default question to ask before joining: "does the output actually need rows from both tables, or just a count from one?"
+
 ### LIKE without wildcards = exact match (2026-06-17, LC #620)
 Used `NOT LIKE 'boring'` expecting it to exclude rows where description *contains* "boring". LIKE without `%` or `_` is an exact string match — identical to `<> 'boring'`. Both queries actually pass; the mental model was the issue. For a "contains" check: `LIKE '%value%'`.
 

@@ -16,3 +16,4 @@ Cold redo schedule — problems get a revisit date ~3 weeks after first solve.
 | Not Boring Movies | #620 | 2026-06-17 | 2026-07-08 | ⏳ |
 | Average Selling Price | #1251 | 2026-06-17 | 2026-07-08 | ⏳ |
 | Project Employees I | #1075 | 2026-06-17 | 2026-07-08 | ⏳ |
+| Percentage of Users Attended a Contest | #1633 | 2026-06-17 | 2026-07-08 | ⏳ |
