@@ -36,7 +36,7 @@ Maps recurring patterns to the problems where they showed up. Check this at sess
 *(none yet)*
 
 ## Date/Time & Pivoting
-*(none yet)*
+- LC #1193 — Monthly Transactions I (TO_CHAR(date, 'YYYY-MM') for month grouping; must appear in GROUP BY)
 
 ## COUNT(col) vs COUNT(*)
 - LC #1581 — Customer Who Visited (theoretical — both equivalent here)

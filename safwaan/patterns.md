@@ -32,8 +32,8 @@ Used `AVG(price * units)` then `AVG(price)` — both wrong. The average price pe
 ### Integer division / ::numeric — still not instinctive (2026-06-17, LC #1251)
 Hit the same Postgres integer division issue as LC #1934. Didn't recall the `::numeric` fix unprompted — needed the direct answer again. Pattern not yet automatic.
 
-### COUNT(col = 'value') doesn't do what you think (2026-06-17, LC #1934, LC #1211)
-Used `COUNT(action = 'confirmed')` and `COUNT(rating < 3)` expecting them to count only matching rows. COUNT ignores boolean truth — it only checks non-NULL. Boolean expressions never return NULL, so COUNT counts every row. The fix: `SUM(CASE WHEN condition THEN 1 ELSE 0 END)`. Second encounter in LC #1211 — still not recalled automatically.
+### COUNT(col = 'value') doesn't do what you think (LC #1934, #1211, #1193 — three times)
+Used `COUNT(action = 'confirmed')`, `COUNT(rating < 3)`, `COUNT(state = 'approved')` expecting conditional counts. COUNT ignores boolean truth — it only checks non-NULL. Boolean expressions never return NULL, so COUNT counts every row. The fix: `SUM(CASE WHEN condition THEN 1 ELSE 0 END)`. Hit three times now — still not recalled without prompting. Must become automatic.
 
 ---
 
@@ -55,8 +55,10 @@ Articulated the rule clearly after LC #1068: "Do I need rows with no match, or o
 - Anti-join pattern (LEFT JOIN + WHERE right_col IS NULL)
 - Self-join structure and alias pattern
 - CROSS JOIN for all-combinations base set
-- COUNT(col) vs COUNT(*) — conceptually solid, needs practice applying it automatically
+- COUNT(col) vs COUNT(*) — conceptually solid when he sees wrong output; not yet pre-emptive
 - INNER vs LEFT JOIN decision rule
+- GROUP BY completeness — four consecutive clean reps, call it solid
+- CASE WHEN for conditional aggregation — used correctly independently
 
 ## What's Still Developing
 - GROUP BY completeness — hit this error three times (LC #1280, #570, #1251). Must become reflex.

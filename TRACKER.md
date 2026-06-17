@@ -13,9 +13,9 @@ Last updated: 2026-06-17
 | Metric | Count |
 |--------|-------|
 | Total problems | 63 |
-| ✅ Complete | 14 |
+| ✅ Complete | 15 |
 | ⚠️ Needs revisit | 0 |
-| ⏳ Not started | 49 |
+| ⏳ Not started | 48 |
 
 ---
 
@@ -30,7 +30,7 @@ Last updated: 2026-06-17
 | 6 | Advanced Select and Joins | 7 | 2 | TBD | ⏳ |
 | 7 | Subqueries | 6 | 1 | TBD | ⏳ |
 | 8 | Window Functions | 6 | 0 | TBD | ⏳ |
-| 9 | Date/Time & Pivoting | 5 | 0 | TBD | ⏳ |
+| 9 | Date/Time & Pivoting | 5 | 1 | TBD | ⏳ |
 | 10 | Mixed / Hard Practice | 7 | 0 | TBD | ⏳ |
 
 ---
@@ -132,7 +132,7 @@ Last updated: 2026-06-17
 |---|---------|------------|----|---------|--------|--------|-----------|
 | 1 | Convert Date Format | Easy | [#1853](https://leetcode.com/problems/convert-date-format/) | DATE_FORMAT | ⏳ | — | — |
 | 2 | Reformat Department Table | Medium | [#1179](https://leetcode.com/problems/reformat-department-table/) | Pivot via conditional SUM/MAX | ⏳ | — | — |
-| 3 | Monthly Transactions I | Medium | [#1193](https://leetcode.com/problems/monthly-transactions-i/) | DATE_FORMAT + GROUP BY | ⏳ | — | — |
+| 3 | Monthly Transactions I | Medium | [#1193](https://leetcode.com/problems/monthly-transactions-i/) | TO_CHAR + GROUP BY + CASE WHEN | ✅ | 2026-06-18 | [learnings](queries/1193-monthly-transactions-i/learnings.md) |
 | 4 | Monthly Transactions II | Medium | [#1205](https://leetcode.com/problems/monthly-transactions-ii/) | GROUP BY with mixed conditional aggregation | ⏳ | — | — |
 | 5 | Rising Temperature (window-function angle) | Easy | [#197](https://leetcode.com/problems/rising-temperature/) | LAG-style framing | ⏳ | — | — |
 

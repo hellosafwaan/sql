@@ -65,11 +65,15 @@ Confirmed from DSA track:
 SQL-specific observations from real sessions:
 - JOIN intuition: INNER JOIN is the default first instinct, but self-corrects fast after seeing missing rows. Anti-join pattern (LEFT JOIN + IS NULL) internalized by the third rep — no longer needs prompting.
 - Role disambiguation in self-joins: reached for timestamp ordering first (fragile). Needed guided questions to land on "use the column that encodes the role." This insight is solid but fresh — probe cold on revisit.
-- GROUP BY completeness: not yet automatic. Hit 3 times (LC #1280, #570, #1251) — fires after the runtime error, not before. Probe explicitly before he runs next aggregation: "check your SELECT — any non-aggregated columns missing from GROUP BY?"
+- GROUP BY completeness: **solid as of 2026-06-18** — four consecutive clean reps (LC #1075, #1633, #1211, #1193). Stop probing this actively.
 - COUNT(col) vs COUNT(*): understands theory, raised it proactively. When it mattered in practice (LC #1280, zero-count rows), needed one nudge. Should become automatic after a few more reps.
 - PostgreSQL `::numeric` cast: hit in LC #1661 and again in LC #1251 — still not recalled automatically. Needs more reps.
-- WHERE-kills-LEFT-JOIN: new pattern from LC #1251. Putting a right-table filter in WHERE eliminates LEFT JOIN's null rows. Probe on next LEFT JOIN + date range problem.
+- WHERE-kills-LEFT-JOIN: first seen in LC #1251. Putting a right-table filter in WHERE eliminates LEFT JOIN's null rows. Probe on next LEFT JOIN + date range problem.
 - Weighted average formula: `SUM(value * weight) / SUM(weight)` — first seen in LC #1251. Probe cold next time units/weights appear.
+- CASE WHEN: introduced LC #1211, applied independently in LC #1193. Solidifying.
+- COUNT(boolean) trap: hit THREE times (LC #1934, #1211, #1193) — still not recalled. Probe this before every aggregation problem: "if you write COUNT(condition), what does that count?"
+- TO_CHAR(date, 'YYYY-MM'): first seen in LC #1193 for month grouping. Must appear in GROUP BY.
+- Scalar subquery in SELECT: first seen in LC #1633. Probe cold next time a global total is needed as a divisor.
 - Session format: prefers to batch multiple problems in one sitting and wrap up all at the end. Wrap-up is user-triggered per batch.
 
 **Watch for, specific to SQL (update as sessions accumulate):**
@@ -169,12 +173,9 @@ Session: [link to session file]
 
 **Solution Walkthrough** is mandatory. Write it in a conversational tone — like explaining to a friend, not writing documentation. Use "So...", rhetorical questions, explain the *why* before the *what*. Drop into precise technical language only when a concept genuinely requires it. Every abstract claim needs a concrete example. For SQL specifically: walk through what the intermediate result set looks like after each clause (FROM/JOIN → WHERE → GROUP BY → HAVING → SELECT → ORDER BY), since that's the mental model that makes queries click.
 
-Before writing this file, ask Safwaan:
-1. How did this problem feel? (difficulty, what clicked, what didn't)
-2. Explain the solution in your own words.
-3. Do you have a LeetCode submission link?
+**Do NOT ask Safwaan reflection questions at wrap-up.** He explains his thinking verbally as he works through the problem — pull "How It Felt" and "Key Insight" from that. The submission link is shared when he pastes it. Just run the wrap-up steps directly. If a submission link was not provided, leave the Submissions section blank.
 
-Clean up his explanation and add it under Key Insight. Reflection goes in How It Felt. Submission link goes in Submissions.
+Clean up his verbal explanation and add it under Key Insight. Reflection goes in How It Felt. Submission link goes in Submissions.
 
 **6. Save `queries/[lc-number]-[problem-slug]/solution.sql`**
 The final, working query — clean, with a one-line comment only if something non-obvious needs explaining (e.g. why a particular JOIN order avoids a fan-out).

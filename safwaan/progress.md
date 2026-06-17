@@ -1,7 +1,7 @@
 # Safwaan — Progress (SQL Track)
 
 ## Current Phase
-**Phase 5 — Basic Joins** (3/5 complete). Also completed 1 problem from Phase 2, 1 from Phase 3, 1 from Phase 6, 1 from Phase 7.
+**Phase 9 — Date/Time & Pivoting** (1/5). Also active: Phase 5 (3/5), Phase 6 (2/7), Phase 3 (4/6 including bonus), Phase 7 (1/6). Several bonus problems from LeetCode SQL 50 Basic Aggregate Functions section completed.
 
 Next problems to continue in order:
 - Phase 2: Fix Names (#1667), Patients With a Condition (#1527), Find Valid Emails (#1517), Calculate Special Bonus (#1873)
@@ -27,6 +27,7 @@ For full curriculum and problem status → [TRACKER.md](../TRACKER.md)
 - ✅ LC #1075 — Project Employees I (Phase 6)
 - ✅ LC #1633 — Percentage of Users Attended a Contest (bonus)
 - ✅ LC #1211 — Queries Quality and Percentage (bonus)
+- ✅ LC #1193 — Monthly Transactions I (Phase 9)
 
 ---
 

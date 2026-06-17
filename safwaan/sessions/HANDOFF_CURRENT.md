@@ -1,6 +1,6 @@
-# Handoff — 2026-06-17 (Session 3, 5 problems)
+# Handoff — 2026-06-18 (Session 3, 6 problems)
 
-## What Was Just Completed
+## What Was Completed This Session
 
 | Session | Problem | LC | Key Pattern |
 |---------|---------|-----|-------------|
@@ -9,34 +9,34 @@
 | 012 | Project Employees I | #1075 | INNER JOIN + AVG + GROUP BY |
 | 013 | Percentage of Users Attended a Contest | #1633 | GROUP BY + scalar subquery in SELECT |
 | 014 | Queries Quality and Percentage | #1211 | CASE WHEN + conditional aggregation + ::numeric |
+| 015 | Monthly Transactions I | #1193 | TO_CHAR + GROUP BY + CASE WHEN (count & sum variants) |
 
 ## Safwaan's Current State
 
 **Solid:**
 - INNER vs LEFT JOIN decision rule — automatic
 - Anti-join pattern — automatic
-- GROUP BY completeness — **three consecutive clean reps** (LC #1075, #1633, #1211). Call it solid.
-- HAVING vs WHERE — used correctly
-- CASE WHEN — introduced and used correctly in LC #1211
-- Scalar subquery in SELECT — first seen in LC #1633
+- GROUP BY completeness — four consecutive clean reps, call it solid
+- CASE WHEN for conditional aggregation — applied independently in LC #1193
+- Weighted average formula — seen twice now
+- COALESCE — used with nudge, building
 
-**Gaps to probe next session:**
-- **COUNT(boolean) trap** — hit twice (LC #1934, #1211), still not recalled without prompting. Probe: "if I write COUNT(rating < 3), what does it count?"
-- **::numeric cast** — applied independently on SUM in LC #1211, but still needed prompting for `AVG(int/int)` variant. Getting closer.
-- **CASE WHEN cold recall** — probe: "how would you count rows where a condition is true inside an aggregation?" without hinting at CASE WHEN.
-- **Scalar subquery** — seen once. Will he reach for it independently next time a global total is needed?
-- **WHERE-kills-LEFT-JOIN** — seen once in LC #1251. Watch for it next time.
+**Key gaps for next session:**
+- **COUNT(boolean) trap** — THREE occurrences (LC #1934, #1211, #1193). Still not recalled without explicit explanation each time. This is the #1 priority to nail next session. Probe before he writes any aggregate: "if you write COUNT(condition), what does that count?"
+- **::numeric cast** — still not recalled for `AVG(int/int)` variant without prompting. The `SUM::numeric` version is getting more instinctive.
+- **WHERE-kills-LEFT-JOIN** — seen once in LC #1251. Watch for next LEFT JOIN + range filter.
+- **Scalar subquery in SELECT** — first seen in LC #1633. Probe cold next time a global total is needed.
+- **TO_CHAR syntax** — first seen in LC #1193. Will he recall `TO_CHAR(date, 'YYYY-MM')` next time?
 
 ## Suggested Next Problems
 
-- LC #1193 — Monthly Transactions I (Medium) — CASE WHEN + DATE_FORMAT/TO_CHAR, good consolidation
-- LC #1174 — Immediate Food Delivery II (Medium) — MIN per group + conditional, good CASE WHEN rep
-- LC #550 — Game Play Analysis IV (Medium) — self-join on date offset, good pattern revisit
+- LC #1174 — Immediate Food Delivery II (Medium) — MIN per group + CASE WHEN, good reps
+- LC #550 — Game Play Analysis IV (Medium) — date offset + ratio, good ::numeric rep
+- LC #1907 — Count Salary Categories (Medium) — CASE WHEN bucketing, good consolidation
 
 ## Coach Notes
 
-- GROUP BY is now solid — three clean reps in a row. Stop watching for it.
-- CASE WHEN landed well. The next problem with conditional aggregation is the real test of whether it was internalized.
-- The ::numeric pattern is getting stickier — he applied it independently on the SUM without prompting. The `AVG(int/int)` variant (casting inside the argument) is slightly less obvious; probe it next time.
-- COUNT(boolean) trap has now bitten twice. If it comes up a third time without recall, make it an explicit teaching moment about how COUNT works.
+- COUNT(boolean) trap is the single most repeated mistake across the whole track. Before the next aggregation problem, probe it cold: "what does COUNT(condition) count?" Don't wait for the mistake.
+- GROUP BY is solid — stop watching for it actively.
+- CASE WHEN is now in his toolkit — LC #1193 confirmed it. The next test is whether he reaches for it without prompting on a new problem.
 - Don't ask reflection questions at wrap-up — pull from what he says during the solve.
