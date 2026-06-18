@@ -1,41 +1,47 @@
-# Handoff — 2026-06-18 (Session 4, 3 problems)
+# Handoff — 2026-06-18 (Session 5, 7 problems)
 
 ## What Was Completed This Session
 
 | Session | Problem | LC | Key Pattern |
 |---------|---------|-----|-------------|
-| 015 | Monthly Transactions I | #1193 | TO_CHAR + GROUP BY + CASE WHEN |
-| 016 | Immediate Food Delivery II | #1174 | Derived-table subquery + two-condition JOIN |
-| 017 | Game Play Analysis IV | #550 | Same pattern + date offset (first_login + 1) |
+| 018 | Number of Unique Subjects | #2356 | COUNT(DISTINCT col) per group |
+| 019 | User Activity for the Past 30 Days I | #1141 | COUNT DISTINCT + Postgres date range filter |
+| 020 | Product Sales Analysis III | #1070 | Derived-table subquery + two-condition JOIN (3rd application) |
+| 021 | Classes More Than 5 Students | #596 | GROUP BY + HAVING COUNT >= N |
+| 022 | Find Followers Count | #1729 | GROUP BY + COUNT + ORDER BY |
+| 023 | Biggest Single Number | #619 | Outer SELECT MAX from filtered subquery; MAX() on empty = NULL |
+| 024 | Customers Who Bought All Products | #1045 | HAVING COUNT(DISTINCT) = scalar subquery in HAVING |
 
 ## Safwaan's Current State
 
 **Solid:**
-- INNER vs LEFT JOIN — automatic
+- GROUP BY completeness — 5+ clean reps, call it done
+- Derived-table subquery pattern — 3 clean applications (#1174, #550, #1070), self-connected on 3rd. Solid.
+- COUNT(DISTINCT col) — applied independently in 3 problems this session
+- INNER vs LEFT JOIN decision rule — automatic
 - Anti-join pattern — automatic
-- GROUP BY completeness — solid (4+ clean reps)
 - CASE WHEN — applies independently
-- Derived-table subquery in FROM — two clean applications (LC #1174, #550)
-- ::numeric cast — **applied independently in LC #550** — solidifying
+- HAVING vs WHERE distinction — clean
 
 **Gaps to probe next session:**
-- **COUNT(boolean) trap** — got it right when probed cold at session start. Keep probing once per session.
-- **::numeric** — applied independently in LC #550. One more clean rep and call it solid.
-- **Fraction vs percentage** — misread once in LC #550. Always probe: "what does the output column name say?"
-- **WHERE-kills-LEFT-JOIN** — seen once (LC #1251). Not yet reinforced.
-- **Scalar subquery in SELECT** — used in LC #550 (COUNT DISTINCT denominator). Second application — building.
-- **Tuple IN subquery** — shown as alternative in LC #1174 notes. Not yet applied independently.
+- **COUNT(boolean) trap** — got it wrong cold at session start today. Still needs explicit probe before each aggregation problem. "If I write COUNT(status = 'confirmed'), what does it count?"
+- **Postgres date arithmetic** — `'date'::date - INTERVAL 'N days'` and why BETWEEN fails with computed bounds. Multiple issues hit this session. Probe before next date-filter problem.
+- **Off-by-one in inclusive date windows** — N-day window inclusive = subtract N-1. Probe cold.
+- **Scalar subquery in HAVING** — new context (previously only in SELECT). Probe: "where else can a scalar subquery live besides SELECT?"
+- **"Do I need this JOIN?"** — reached for JOIN unnecessarily twice this session (LC #619, #1045). Before each new problem: "does the output need rows from a second table?"
+- **WHERE-kills-LEFT-JOIN** — seen once (LC #1251). Not reinforced this session.
 
 ## Suggested Next Problems
 
-LeetCode SQL 50 remaining (Basic Aggregate Functions done):
-- LC #183 — Customers Who Never Order (anti-join cold rep — should be very fast)
-- LC #607 — Sales Person (multi-table anti-join, slightly harder)
+From curriculum in order:
+- LC #183 — Customers Who Never Order (anti-join cold rep — very fast)
+- LC #607 — Sales Person (multi-table anti-join)
 - LC #1907 — Count Salary Categories (CASE WHEN bucketing — good consolidation)
+- LC #176 — Second Highest Salary (Phase 4 start: DISTINCT + LIMIT/OFFSET or subquery)
 
 ## Coach Notes
 
-- ::numeric is getting sticky — he applied it on his own in LC #550. One more and call it solid.
-- Derived-table subquery pattern transferred cleanly from LC #1174 to #550. Pattern is solid.
-- COUNT(boolean) — probe cold at start of next session before first aggregation problem.
-- Don't ask reflection questions at wrap-up.
+- COUNT(boolean) — still not automatic. Probe cold every session start.
+- The "do I need a JOIN?" probe is now important — he over-reached twice in one session.
+- Postgres date arithmetic: when the next date-filter problem comes up, pause before he writes and probe whether he recalls the ::date cast and >= / <= pattern.
+- Derived-table subquery is fully locked in — no need to probe anymore.

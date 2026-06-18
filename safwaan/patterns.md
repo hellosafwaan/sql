@@ -35,6 +35,15 @@ Hit the same Postgres integer division issue as LC #1934. Didn't recall the `::n
 ### COUNT(col = 'value') doesn't do what you think (LC #1934, #1211, #1193 — three times)
 Used `COUNT(action = 'confirmed')`, `COUNT(rating < 3)`, `COUNT(state = 'approved')` expecting conditional counts. COUNT ignores boolean truth — it only checks non-NULL. Boolean expressions never return NULL, so COUNT counts every row. The fix: `SUM(CASE WHEN condition THEN 1 ELSE 0 END)`. Hit three times now — still not recalled without prompting. Must become automatic.
 
+### Over-reaching for JOIN when subquery suffices (LC #619, LC #1045 — 2026-06-18)
+Two problems this session where a JOIN was the wrong first instinct. LC #619: joined the subquery of single numbers back to MyNumbers unnecessarily — a simple outer SELECT MAX() was enough. LC #1045: wanted to JOIN Customer with Product to check "all products" — the real structure is COUNT(DISTINCT) in HAVING compared to a scalar subquery. Default question before writing a JOIN: "do I actually need columns from a second table in my output?"
+
+### BETWEEN with arithmetic lower bound breaks in Postgres (LC #1141 — 2026-06-18)
+Used `activity_date BETWEEN '2019-07-27' - INTERVAL '29 days' AND '2019-07-27'`. Postgres has precedence issues parsing this — the interval expression gets misread. Fix: use `>=` and `<=` whenever the bound involves date arithmetic. Also needed `::date` cast on the string before subtracting the interval.
+
+### Off-by-one in inclusive date windows (LC #1141 — 2026-06-18)
+Used `-30` for a 30-day window ending on the reference date inclusive. The correct offset is `-29` — the end date itself counts as day 1 of the 30.
+
 ---
 
 ## Breakthroughs
@@ -57,13 +66,16 @@ Articulated the rule clearly after LC #1068: "Do I need rows with no match, or o
 - CROSS JOIN for all-combinations base set
 - COUNT(col) vs COUNT(*) — conceptually solid when he sees wrong output; not yet pre-emptive
 - INNER vs LEFT JOIN decision rule
-- GROUP BY completeness — four consecutive clean reps, call it solid
+- GROUP BY completeness — solid (5+ clean reps)
 - CASE WHEN for conditional aggregation — used correctly independently
+- Derived-table subquery (subquery in FROM + two-condition JOIN) — 3 clean applications, pattern solid
+- COUNT(DISTINCT col) — applied independently this session
 
 ## What's Still Developing
-- GROUP BY completeness — hit this error three times (LC #1280, #570, #1251). Must become reflex.
-- CASE WHEN — not yet encountered. Next time conditional aggregation comes up, introduce it properly.
-- PostgreSQL-specific syntax: `::numeric` cast — hit again in LC #1251, still not recalled automatically
-- Role pinning in self-joins — correct but took guided questions to arrive at; worth a cold revisit
-- WHERE-kills-LEFT-JOIN — new pattern from LC #1251, only seen once. Probe next time a LEFT JOIN + date filter appears.
-- Weighted average formula — seen once in LC #1251. Probe cold next time units/weights appear in aggregation.
+- COUNT(boolean) trap — probed cold at session start, got it wrong again. Still needs explicit prompting before each aggregation problem.
+- PostgreSQL date arithmetic: `'date'::date - INTERVAL 'N days'` — still causes friction; BETWEEN + arithmetic fails, need >= / <=, need ::date cast
+- Off-by-one in inclusive date windows — subtract N-1, not N
+- Scalar subquery in HAVING — new this session (LC #1045). Previous uses were in SELECT. Probe cold next time.
+- WHERE-kills-LEFT-JOIN — seen once (LC #1251). Not yet reinforced.
+- Weighted average formula — seen once in LC #1251. Probe cold next time units/weights appear.
+- "Do I need this JOIN?" — reached for JOIN unnecessarily twice this session (LC #619, #1045). Probe before each new problem.

@@ -12,10 +12,10 @@ Last updated: 2026-06-17
 ## Summary
 | Metric | Count |
 |--------|-------|
-| Total problems | 64 |
-| ✅ Complete | 17 |
+| Total problems | 69 |
+| ✅ Complete | 24 |
 | ⚠️ Needs revisit | 0 |
-| ⏳ Not started | 47 |
+| ⏳ Not started | 45 |
 
 ---
 
@@ -61,7 +61,7 @@ Last updated: 2026-06-17
 | # | Problem | Difficulty | LC | Pattern | Status | Solved | Learnings |
 |---|---------|------------|----|---------|--------|--------|-----------|
 | 1 | Find Total Time Spent by Each Employee | Easy | [#1741](https://leetcode.com/problems/find-total-time-spent-by-each-employee/) | GROUP BY + SUM | ⏳ | — | — |
-| 2 | Classes More Than 5 Students | Easy | [#596](https://leetcode.com/problems/classes-more-than-5-students/) | GROUP BY + HAVING | ⏳ | — | — |
+| 2 | Classes More Than 5 Students | Easy | [#596](https://leetcode.com/problems/classes-more-than-5-students/) | GROUP BY + HAVING | ✅ | 2026-06-18 | [learnings](queries/596-classes-more-than-5-students/learnings.md) |
 | 3 | Customer Placing the Largest Number of Orders | Easy | [#586](https://leetcode.com/problems/customer-placing-the-largest-number-of-orders/) | GROUP BY + ORDER BY + LIMIT | ⏳ | — | — |
 | 4 | Employee Bonus | Easy | [#577](https://leetcode.com/problems/employee-bonus/) | LEFT JOIN + filter | ✅ | 2026-06-17 | [learnings](queries/577-employee-bonus/learnings.md) |
 | 5 | Managers with at Least 5 Direct Reports | Medium | [#570](https://leetcode.com/problems/managers-with-at-least-5-direct-reports/) | Self-JOIN + GROUP BY + HAVING | ✅ | 2026-06-17 | [learnings](queries/570-managers-with-at-least-5-direct-reports/learnings.md) |
@@ -71,6 +71,9 @@ Last updated: 2026-06-17
 | — | Percentage of Users Attended a Contest *(bonus)* | Easy | [#1633](https://leetcode.com/problems/percentage-of-users-attended-a-contest/) | GROUP BY + scalar subquery denominator | ✅ | 2026-06-17 | [learnings](queries/1633-percentage-of-users-attended-a-contest/learnings.md) |
 | — | Queries Quality and Percentage *(bonus)* | Easy | [#1211](https://leetcode.com/problems/queries-quality-and-percentage/) | CASE WHEN + conditional aggregation + ::numeric | ✅ | 2026-06-17 | [learnings](queries/1211-queries-quality-and-percentage/learnings.md) |
 | — | Immediate Food Delivery II *(bonus)* | Medium | [#1174](https://leetcode.com/problems/immediate-food-delivery-ii/) | Subquery in FROM + two-condition JOIN + CASE WHEN | ✅ | 2026-06-18 | [learnings](queries/1174-immediate-food-delivery-ii/learnings.md) |
+| — | Number of Unique Subjects Taught by Each Teacher *(bonus)* | Easy | [#2356](https://leetcode.com/problems/number-of-unique-subjects-taught-by-each-teacher/) | COUNT(DISTINCT) per group | ✅ | 2026-06-18 | [learnings](queries/2356-number-of-unique-subjects-taught-by-each-teacher/learnings.md) |
+| — | User Activity for the Past 30 Days I *(bonus)* | Easy | [#1141](https://leetcode.com/problems/user-activity-for-the-past-30-days-i/) | COUNT DISTINCT + date range filter | ✅ | 2026-06-18 | [learnings](queries/1141-user-activity-for-the-past-30-days-i/learnings.md) |
+| — | Find Followers Count *(bonus)* | Easy | [#1729](https://leetcode.com/problems/find-followers-count/) | GROUP BY + COUNT + ORDER BY | ✅ | 2026-06-18 | [learnings](queries/1729-find-followers-count/learnings.md) |
 
 ## Phase 4 — Sorting and Grouping ⏳
 
@@ -98,7 +101,7 @@ Last updated: 2026-06-17
 | # | Problem | Difficulty | LC | Pattern | Status | Solved | Learnings |
 |---|---------|------------|----|---------|--------|--------|-----------|
 | 1 | Product Sales Analysis I | Easy | [#1068](https://leetcode.com/problems/product-sales-analysis-i/) | JOIN | ✅ | 2026-06-17 | [learnings](queries/1068-product-sales-analysis-i/learnings.md) |
-| 2 | Product Sales Analysis III | Medium | [#1070](https://leetcode.com/problems/product-sales-analysis-iii/) | JOIN + first-occurrence filter | ⏳ | — | — |
+| 2 | Product Sales Analysis III | Medium | [#1070](https://leetcode.com/problems/product-sales-analysis-iii/) | JOIN + first-occurrence filter | ✅ | 2026-06-18 | [learnings](queries/1070-product-sales-analysis-iii/learnings.md) |
 | 3 | Project Employees I | Easy | [#1075](https://leetcode.com/problems/project-employees-i/) | JOIN + AVG, rounding | ✅ | 2026-06-17 | [learnings](queries/1075-project-employees-i/learnings.md) |
 | 4 | Project Employees III | Medium | [#1077](https://leetcode.com/problems/project-employees-iii/) | JOIN + top-N-per-group | ⏳ | — | — |
 | 5 | Sales Analysis I | Easy | [#1082](https://leetcode.com/problems/sales-analysis-i/) | JOIN + aggregation | ⏳ | — | — |
@@ -115,6 +118,8 @@ Last updated: 2026-06-17
 | 4 | Triangle Judgement | Easy | [#610](https://leetcode.com/problems/triangle-judgement/) | CASE WHEN, no subquery needed (control) | ⏳ | — | — |
 | 5 | Consecutive Numbers | Medium | [#180](https://leetcode.com/problems/consecutive-numbers/) | Self-JOIN on row offset | ⏳ | — | — |
 | 6 | Students and Examinations | Medium | [#1280](https://leetcode.com/problems/students-and-examinations/) | CROSS JOIN + LEFT JOIN + GROUP BY | ✅ | 2026-06-17 | [learnings](queries/1280-students-and-examinations/learnings.md) |
+| — | Biggest Single Number *(bonus)* | Easy | [#619](https://leetcode.com/problems/biggest-single-number/) | GROUP BY + HAVING + outer MAX subquery | ✅ | 2026-06-18 | [learnings](queries/619-biggest-single-number/learnings.md) |
+| — | Customers Who Bought All Products *(bonus)* | Medium | [#1045](https://leetcode.com/problems/customers-who-bought-all-products/) | HAVING COUNT(DISTINCT) = scalar subquery | ✅ | 2026-06-18 | [learnings](queries/1045-customers-who-bought-all-products/learnings.md) |
 
 ## Phase 8 — Window Functions ⏳
 

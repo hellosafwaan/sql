@@ -65,15 +65,19 @@ Confirmed from DSA track:
 SQL-specific observations from real sessions:
 - JOIN intuition: INNER JOIN is the default first instinct, but self-corrects fast after seeing missing rows. Anti-join pattern (LEFT JOIN + IS NULL) internalized by the third rep — no longer needs prompting.
 - Role disambiguation in self-joins: reached for timestamp ordering first (fragile). Needed guided questions to land on "use the column that encodes the role." This insight is solid but fresh — probe cold on revisit.
-- GROUP BY completeness: **solid as of 2026-06-18** — four consecutive clean reps (LC #1075, #1633, #1211, #1193). Stop probing this actively.
+- GROUP BY completeness: **solid as of 2026-06-18** — 5+ consecutive clean reps. Stop probing this actively.
 - COUNT(col) vs COUNT(*): understands theory, raised it proactively. When it mattered in practice (LC #1280, zero-count rows), needed one nudge. Should become automatic after a few more reps.
 - PostgreSQL `::numeric` cast: hit in LC #1661 and again in LC #1251 — still not recalled automatically. Needs more reps.
 - WHERE-kills-LEFT-JOIN: first seen in LC #1251. Putting a right-table filter in WHERE eliminates LEFT JOIN's null rows. Probe on next LEFT JOIN + date range problem.
 - Weighted average formula: `SUM(value * weight) / SUM(weight)` — first seen in LC #1251. Probe cold next time units/weights appear.
 - CASE WHEN: introduced LC #1211, applied independently in LC #1193. Solidifying.
-- COUNT(boolean) trap: hit THREE times (LC #1934, #1211, #1193) — still not recalled. Probe this before every aggregation problem: "if you write COUNT(condition), what does that count?"
+- COUNT(boolean) trap: hit session start probe cold on 2026-06-18 and still got it wrong ("counts TRUE and FALSE"). Probe this before every aggregation problem: "if you write COUNT(condition), what does that count?" — the answer is "every non-NULL row, which means everything since boolean never returns NULL."
 - TO_CHAR(date, 'YYYY-MM'): first seen in LC #1193 for month grouping. Must appear in GROUP BY.
-- Scalar subquery in SELECT: first seen in LC #1633. Probe cold next time a global total is needed as a divisor.
+- Scalar subquery in SELECT: first seen in LC #1633. Used in LC #1045 in HAVING context (new). Probe cold next time a global total is needed as a divisor or comparison target.
+- Derived-table subquery: **solid as of 2026-06-18** — three clean applications (LC #1174, #550, #1070). Stop probing actively.
+- COUNT(DISTINCT col): first used in LC #2356, applied cleanly across 3 problems this session. Solid.
+- Postgres date arithmetic: `'date'::date - INTERVAL 'N days'` — still causing friction. BETWEEN with computed lower bound fails in Postgres (precedence issue). Must use >= / <=. String needs ::date cast before interval subtraction. Off-by-one: N-day inclusive window = subtract N-1. Probe before next date-filter problem.
+- "Do I need this JOIN?": reached for JOIN unnecessarily in LC #619 and #1045 (2026-06-18). Before each new problem ask: "does the output need rows from a second table?" Two clean counter-examples now logged.
 - Session format: prefers to batch multiple problems in one sitting and wrap up all at the end. Wrap-up is user-triggered per batch.
 
 **Watch for, specific to SQL (update as sessions accumulate):**
@@ -99,6 +103,9 @@ SQL-specific observations from real sessions:
 - CROSS JOIN for all-combinations base set
 - COUNT(col) skips NULLs, COUNT(*) does not — he's demonstrated this conceptually, just needs one nudge to apply in practice
 - `::numeric` cast needed for ROUND in Postgres with decimal places
+- Derived-table subquery pattern: subquery in FROM gets per-group aggregate, JOIN back on two conditions recovers full row — 3 clean applications, fully internalized
+- COUNT(DISTINCT col): applies independently, no explanation needed
+- GROUP BY completeness: includes all non-aggregated SELECT columns — solid across 5+ problems
 
 ## Tone
 

@@ -21,3 +21,10 @@ Cold redo schedule — problems get a revisit date ~3 weeks after first solve.
 | Monthly Transactions I | #1193 | 2026-06-18 | 2026-07-09 | ⏳ |
 | Immediate Food Delivery II | #1174 | 2026-06-18 | 2026-07-09 | ⏳ |
 | Game Play Analysis IV | #550 | 2026-06-18 | 2026-07-09 | ⏳ |
+| Number of Unique Subjects | #2356 | 2026-06-18 | 2026-07-09 | ⏳ |
+| User Activity for the Past 30 Days I | #1141 | 2026-06-18 | 2026-07-09 | ⏳ |
+| Product Sales Analysis III | #1070 | 2026-06-18 | 2026-07-09 | ⏳ |
+| Classes More Than 5 Students | #596 | 2026-06-18 | 2026-07-09 | ⏳ |
+| Find Followers Count | #1729 | 2026-06-18 | 2026-07-09 | ⏳ |
+| Biggest Single Number | #619 | 2026-06-18 | 2026-07-09 | ⏳ |
+| Customers Who Bought All Products | #1045 | 2026-06-18 | 2026-07-09 | ⏳ |

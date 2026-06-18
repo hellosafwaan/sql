@@ -2,7 +2,15 @@
 
 Open questions to probe in upcoming sessions. Mark answered items inline when they come up.
 
-## Open
+## Open (updated 2026-06-18)
+
+- **COUNT(boolean) trap** — probed cold at session start (2026-06-18), still got it wrong ("counts TRUE and FALSE"). Explained again. Keep probing every session before first aggregation problem.
+- **Postgres date arithmetic** — `'date'::date - INTERVAL 'N days'` causes friction. BETWEEN + computed lower bound fails; must use >= / <=. The ::date cast is needed. Probe before next date-filter problem.
+- **Inclusive date window off-by-one** — subtract N-1 days for an N-day window ending on day X. Probe cold.
+- **Scalar subquery in HAVING** — new context this session (LC #1045). Previously only seen in SELECT. Probe cold next time a "has all of X" or comparison-against-global-count pattern appears.
+- **"Do I need this JOIN?"** — reached for JOIN unnecessarily in LC #619 and #1045 this session. Before each new problem, probe: does the output need rows from a second table, or is this a counting/aggregation problem?
+
+## Previously Open
 
 - **GROUP BY completeness** — included pre-emptively for the first time in LC #1075 (no runtime error needed). Watch whether this holds consistently going forward.
 - **Role pinning revisit (LC #1661)** — can he explain from cold why `t1.timestamp < t2.timestamp` breaks on equal timestamps and why activity_type in the JOIN is the right fix?

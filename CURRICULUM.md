@@ -1,7 +1,7 @@
 # SQL Curriculum — LeetCode Database Track
 
 Goal: Interview-ready SQL (analytics + backend interview rounds)
-Total: 10 phases, ~62 problems
+Total: 10 phases, ~69 problems
 Dialect: MySQL (LeetCode's default) — flag dialect-specific syntax (e.g. `IFNULL` vs `COALESCE`, `DATEDIFF`) when it comes up.
 
 > Note: LeetCode occasionally renumbers or retires problems. If a link 404s, search the title on leetcode.com/problemset/database/ instead of guessing a new number.
@@ -55,6 +55,9 @@ Dialect: MySQL (LeetCode's default) — flag dialect-specific syntax (e.g. `IFNU
 | — | Not Boring Movies *(bonus)* | Easy | [LC #620](https://leetcode.com/problems/not-boring-movies/) | WHERE + modulo + ORDER BY |
 | — | Average Selling Price *(bonus)* | Easy | [LC #1251](https://leetcode.com/problems/average-selling-price/) | LEFT JOIN + weighted average + COALESCE |
 | — | Percentage of Users Attended a Contest *(bonus)* | Easy | [LC #1633](https://leetcode.com/problems/percentage-of-users-attended-a-contest/) | GROUP BY + scalar subquery denominator |
+| — | Number of Unique Subjects Taught by Each Teacher *(bonus)* | Easy | [LC #2356](https://leetcode.com/problems/number-of-unique-subjects-taught-by-each-teacher/) | COUNT(DISTINCT) per group |
+| — | User Activity for the Past 30 Days I *(bonus)* | Easy | [LC #1141](https://leetcode.com/problems/user-activity-for-the-past-30-days-i/) | COUNT DISTINCT + date range filter |
+| — | Find Followers Count *(bonus)* | Easy | [LC #1729](https://leetcode.com/problems/find-followers-count/) | GROUP BY + COUNT + ORDER BY |
 
 ---
 
@@ -118,6 +121,8 @@ Dialect: MySQL (LeetCode's default) — flag dialect-specific syntax (e.g. `IFNU
 | 4 | Triangle Judgement | Easy | [LC #610](https://leetcode.com/problems/triangle-judgement/) | CASE WHEN, no subquery needed (control) |
 | 5 | Consecutive Numbers | Medium | [LC #180](https://leetcode.com/problems/consecutive-numbers/) | Self-JOIN on row offset |
 | 6 | Students and Examinations | Medium | [LC #1280](https://leetcode.com/problems/students-and-examinations/) | CROSS JOIN + LEFT JOIN + GROUP BY |
+| — | Biggest Single Number *(bonus)* | Easy | [LC #619](https://leetcode.com/problems/biggest-single-number/) | GROUP BY + HAVING + outer MAX subquery |
+| — | Customers Who Bought All Products *(bonus)* | Medium | [LC #1045](https://leetcode.com/problems/customers-who-bought-all-products/) | HAVING COUNT(DISTINCT) = scalar subquery |
 
 ---
 
