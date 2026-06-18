@@ -20,3 +20,4 @@ Cold redo schedule — problems get a revisit date ~3 weeks after first solve.
 | Queries Quality and Percentage | #1211 | 2026-06-17 | 2026-07-08 | ⏳ |
 | Monthly Transactions I | #1193 | 2026-06-18 | 2026-07-09 | ⏳ |
 | Immediate Food Delivery II | #1174 | 2026-06-18 | 2026-07-09 | ⏳ |
+| Game Play Analysis IV | #550 | 2026-06-18 | 2026-07-09 | ⏳ |

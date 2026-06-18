@@ -32,6 +32,7 @@ Maps recurring patterns to the problems where they showed up. Check this at sess
 ## Subqueries (scalar / correlated / EXISTS)
 - LC #1633 — Percentage of Users Attended a Contest (scalar subquery in SELECT as global denominator)
 - LC #1174 — Immediate Food Delivery II (derived table in FROM: subquery to get per-group MIN, JOIN back on two conditions to recover full row)
+- LC #550 — Game Play Analysis IV (same pattern + date offset: first_login + 1; fraction vs percentage distinction)
 
 ## Window Functions
 *(none yet)*

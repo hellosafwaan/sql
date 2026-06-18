@@ -1,40 +1,41 @@
-# Handoff — 2026-06-18 (Session 4, 2 problems)
+# Handoff — 2026-06-18 (Session 4, 3 problems)
 
 ## What Was Completed This Session
 
 | Session | Problem | LC | Key Pattern |
 |---------|---------|-----|-------------|
-| 015 | Monthly Transactions I | #1193 | TO_CHAR + GROUP BY + CASE WHEN (count & sum) |
-| 016 | Immediate Food Delivery II | #1174 | Subquery in FROM + two-condition JOIN + CASE WHEN |
+| 015 | Monthly Transactions I | #1193 | TO_CHAR + GROUP BY + CASE WHEN |
+| 016 | Immediate Food Delivery II | #1174 | Derived-table subquery + two-condition JOIN |
+| 017 | Game Play Analysis IV | #550 | Same pattern + date offset (first_login + 1) |
 
 ## Safwaan's Current State
 
 **Solid:**
-- INNER vs LEFT JOIN decision rule — automatic
+- INNER vs LEFT JOIN — automatic
 - Anti-join pattern — automatic
-- GROUP BY completeness — solid, stop watching
-- CASE WHEN for conditional aggregation — applies independently
-- Subquery structure (FROM clause) — first encounter, pattern clicked
+- GROUP BY completeness — solid (4+ clean reps)
+- CASE WHEN — applies independently
+- Derived-table subquery in FROM — two clean applications (LC #1174, #550)
+- ::numeric cast — **applied independently in LC #550** — solidifying
 
-**Key gaps:**
-- **COUNT(boolean) trap** — got it right when probed cold at start of session. Real improvement. Keep probing once per session before first aggregation problem.
-- **::numeric cast** — still needs prompting (fourth encounter). Getting closer. The SUM::numeric form is more instinctive than the AVG(int/int) form.
-- **Two-condition JOIN** — used wrong column first time (matched pref_date instead of order_date). New pattern; watch for repetition.
-- **WHERE-kills-LEFT-JOIN** — seen once (LC #1251). Watch for next LEFT JOIN + range filter.
-- **Scalar subquery in SELECT** — seen once (LC #1633). Probe cold next time global total needed.
+**Gaps to probe next session:**
+- **COUNT(boolean) trap** — got it right when probed cold at session start. Keep probing once per session.
+- **::numeric** — applied independently in LC #550. One more clean rep and call it solid.
+- **Fraction vs percentage** — misread once in LC #550. Always probe: "what does the output column name say?"
+- **WHERE-kills-LEFT-JOIN** — seen once (LC #1251). Not yet reinforced.
+- **Scalar subquery in SELECT** — used in LC #550 (COUNT DISTINCT denominator). Second application — building.
+- **Tuple IN subquery** — shown as alternative in LC #1174 notes. Not yet applied independently.
 
 ## Suggested Next Problems
 
-Remaining in LeetCode SQL 50 Basic Aggregate Functions:
-- LC #550 — Game Play Analysis IV (Medium) — LAG or self-join on date offset, ratio; good ::numeric rep
-
-Or continue the curriculum:
-- LC #183 — Customers Who Never Order (anti-join cold rep)
-- LC #607 — Sales Person (multi-table anti-join)
+LeetCode SQL 50 remaining (Basic Aggregate Functions done):
+- LC #183 — Customers Who Never Order (anti-join cold rep — should be very fast)
+- LC #607 — Sales Person (multi-table anti-join, slightly harder)
+- LC #1907 — Count Salary Categories (CASE WHEN bucketing — good consolidation)
 
 ## Coach Notes
 
-- Probe COUNT(boolean) cold at the start of the next session — he got it right this time, confirm it's locked in.
-- ::numeric is the most repeated pattern that hasn't clicked yet. Four encounters. Next time it comes up, don't prompt — let him hit the 0 output and diagnose it himself.
-- The derived-table subquery pattern is new and high-value. LC #550 (Game Play Analysis IV) uses a similar "first event per user" structure — good cold rep for the pattern.
+- ::numeric is getting sticky — he applied it on his own in LC #550. One more and call it solid.
+- Derived-table subquery pattern transferred cleanly from LC #1174 to #550. Pattern is solid.
+- COUNT(boolean) — probe cold at start of next session before first aggregation problem.
 - Don't ask reflection questions at wrap-up.

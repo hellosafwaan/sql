@@ -13,9 +13,9 @@ Last updated: 2026-06-17
 | Metric | Count |
 |--------|-------|
 | Total problems | 64 |
-| ✅ Complete | 16 |
+| ✅ Complete | 17 |
 | ⚠️ Needs revisit | 0 |
-| ⏳ Not started | 48 |
+| ⏳ Not started | 47 |
 
 ---
 
@@ -29,7 +29,7 @@ Last updated: 2026-06-17
 | 5 | Basic Joins | 5 | 3 | TBD | ⏳ |
 | 6 | Advanced Select and Joins | 7 | 2 | TBD | ⏳ |
 | 7 | Subqueries | 6 | 1 | TBD | ⏳ |
-| 8 | Window Functions | 6 | 0 | TBD | ⏳ |
+| 8 | Window Functions | 6 | 1 | TBD | ⏳ |
 | 9 | Date/Time & Pivoting | 5 | 1 | TBD | ⏳ |
 | 10 | Mixed / Hard Practice | 7 | 0 | TBD | ⏳ |
 
@@ -123,7 +123,7 @@ Last updated: 2026-06-17
 | 1 | Nth Highest Salary | Medium | [#177](https://leetcode.com/problems/nth-highest-salary/) | DENSE_RANK() or LIMIT/OFFSET in a function | ⏳ | — | — |
 | 2 | Running Total for Different Genders | Medium | [#1308](https://leetcode.com/problems/running-total-for-different-genders/) | SUM() OVER (PARTITION BY ... ORDER BY ...) | ⏳ | — | — |
 | 3 | Game Play Analysis I | Easy | [#511](https://leetcode.com/problems/game-play-analysis-i/) | MIN() + GROUP BY (warm-up) | ⏳ | — | — |
-| 4 | Game Play Analysis IV | Medium | [#550](https://leetcode.com/problems/game-play-analysis-iv/) | Self-JOIN on date offset + ROUND | ⏳ | — | — |
+| 4 | Game Play Analysis IV | Medium | [#550](https://leetcode.com/problems/game-play-analysis-iv/) | Derived-table subquery + date offset + fraction | ✅ | 2026-06-18 | [learnings](queries/550-game-play-analysis-iv/learnings.md) |
 | 5 | Median Employee Salary | Hard | [#569](https://leetcode.com/problems/median-employee-salary/) | RANK()/ROW_NUMBER() within partition | ⏳ | — | — |
 | 6 | Find Cumulative Salary of an Employee | Hard | [#579](https://leetcode.com/problems/find-cumulative-salary-of-an-employee/) | SUM() OVER with row range | ⏳ | — | — |
 
