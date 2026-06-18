@@ -12,8 +12,8 @@ Last updated: 2026-06-17
 ## Summary
 | Metric | Count |
 |--------|-------|
-| Total problems | 63 |
-| ✅ Complete | 15 |
+| Total problems | 64 |
+| ✅ Complete | 16 |
 | ⚠️ Needs revisit | 0 |
 | ⏳ Not started | 48 |
 
@@ -70,6 +70,7 @@ Last updated: 2026-06-17
 | — | Average Selling Price *(bonus)* | Easy | [#1251](https://leetcode.com/problems/average-selling-price/) | LEFT JOIN + weighted average + COALESCE | ✅ | 2026-06-17 | [learnings](queries/1251-average-selling-price/learnings.md) |
 | — | Percentage of Users Attended a Contest *(bonus)* | Easy | [#1633](https://leetcode.com/problems/percentage-of-users-attended-a-contest/) | GROUP BY + scalar subquery denominator | ✅ | 2026-06-17 | [learnings](queries/1633-percentage-of-users-attended-a-contest/learnings.md) |
 | — | Queries Quality and Percentage *(bonus)* | Easy | [#1211](https://leetcode.com/problems/queries-quality-and-percentage/) | CASE WHEN + conditional aggregation + ::numeric | ✅ | 2026-06-17 | [learnings](queries/1211-queries-quality-and-percentage/learnings.md) |
+| — | Immediate Food Delivery II *(bonus)* | Medium | [#1174](https://leetcode.com/problems/immediate-food-delivery-ii/) | Subquery in FROM + two-condition JOIN + CASE WHEN | ✅ | 2026-06-18 | [learnings](queries/1174-immediate-food-delivery-ii/learnings.md) |
 
 ## Phase 4 — Sorting and Grouping ⏳
 

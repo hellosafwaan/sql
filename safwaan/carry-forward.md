@@ -14,6 +14,8 @@ Open questions to probe in upcoming sessions. Mark answered items inline when th
 - **COALESCE** — used correctly in LC #1251 after nudge. Will he reach for it instinctively next time a LEFT JOIN produces NULLs in an aggregate?
 - **HAVING vs WHERE** — correctly used HAVING in LC #570 but may not have fully articulated the difference. Probe: "why can't you put COUNT(...) >= 5 in a WHERE clause?"
 - **Scalar subquery in SELECT** — first seen in LC #1633. Will he reach for it independently next time a global total is needed as a divisor?
+- **Derived table subquery (subquery in FROM)** — first seen in LC #1174. Pattern: subquery gets per-group aggregate, JOIN back on group key + aggregate value to recover full row. Probe cold on next problem requiring first/min row per group.
+- **Two-condition JOIN**: `ON a.id = b.id AND a.date = b.min_date` — easy to use wrong column (matched pref_date instead of order_date first time). Watch for this.
 - **"Do I need this JOIN?"** — probe before he reaches for a JOIN: "does the output need rows from both tables, or just a count from one?"
 - **WHERE-kills-LEFT-JOIN** — new pattern from LC #1251. Will he catch this independently next time a LEFT JOIN + range filter appears, or will he put the filter in WHERE again?
 - **Weighted average formula** — `SUM(value * weight) / SUM(weight)` — seen once in LC #1251. Will he distinguish this from `AVG(col)` without prompting next time?

@@ -28,6 +28,7 @@ For full curriculum and problem status → [TRACKER.md](../TRACKER.md)
 - ✅ LC #1633 — Percentage of Users Attended a Contest (bonus)
 - ✅ LC #1211 — Queries Quality and Percentage (bonus)
 - ✅ LC #1193 — Monthly Transactions I (Phase 9)
+- ✅ LC #1174 — Immediate Food Delivery II (bonus)
 
 ---
 
