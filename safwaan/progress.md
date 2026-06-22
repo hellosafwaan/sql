@@ -13,8 +13,20 @@ For full curriculum and problem status → [TRACKER.md](../TRACKER.md)
 
 ---
 
-## Recently Completed (2026-06-18 — Sessions 5, 7 problems)
+## Recently Completed (2026-06-22 — Session 7–8, 5 problems)
 
+- ✅ LC #610 — Triangle Judgement (Phase 7) — clean first-attempt CASE WHEN
+- ✅ LC #180 — Consecutive Numbers (Phase 7) — triple self-join on id offset
+- ✅ LC #1164 — Product Price at a Given Date (bonus) — derived-table + anti-join UNION
+- ✅ LC #1204 — Last Person to Fit in the Bus (bonus) — first window function: SUM() OVER (ORDER BY)
+- ✅ LC #1907 — Count Salary Categories (Phase 3) — UNION for guaranteed output categories
+
+---
+
+## Previously Completed (2026-06-18 — Sessions 5–6, 9 problems)
+
+- ✅ LC #1731 — The Number of Employees Which Report to Each Employee (bonus)
+- ✅ LC #1789 — Primary Department for Each Employee (bonus)
 - ✅ LC #2356 — Number of Unique Subjects Taught by Each Teacher (bonus)
 - ✅ LC #1141 — User Activity for the Past 30 Days I (bonus)
 - ✅ LC #1070 — Product Sales Analysis III (Phase 6)
@@ -23,7 +35,15 @@ For full curriculum and problem status → [TRACKER.md](../TRACKER.md)
 - ✅ LC #619 — Biggest Single Number (bonus)
 - ✅ LC #1045 — Customers Who Bought All Products (bonus)
 
----
+## Previously Completed (2026-06-17 — Sessions 1–4)
+
+- ✅ LC #2356 — Number of Unique Subjects Taught by Each Teacher (bonus)
+- ✅ LC #1141 — User Activity for the Past 30 Days I (bonus)
+- ✅ LC #1070 — Product Sales Analysis III (Phase 6)
+- ✅ LC #596 — Classes More Than 5 Students (Phase 3)
+- ✅ LC #1729 — Find Followers Count (bonus)
+- ✅ LC #619 — Biggest Single Number (bonus)
+- ✅ LC #1045 — Customers Who Bought All Products (bonus)
 
 ## Previously Completed (2026-06-17 — Sessions 1–4)
 - ✅ LC #1378 — Replace Employee ID With The Unique Identifier (Phase 2)
@@ -58,8 +78,9 @@ For full curriculum and problem status → [TRACKER.md](../TRACKER.md)
 - [x] Derived-table subquery pattern — solid (3 clean applications: #1174, #550, #1070)
 - [x] COUNT(DISTINCT col) — applies independently
 - [ ] COUNT(boolean) trap — still not automatic without probe
-- [ ] Scalar subquery in HAVING — new this session (LC #1045)
-- [ ] Date range filter in Postgres (::date cast + INTERVAL) — hit multiple issues this session
+- [ ] Scalar subquery in HAVING — new in session 5 (LC #1045)
+- [ ] Date range filter in Postgres (::date cast + INTERVAL) — hit multiple issues in session 5
+- [ ] UNION vs UNION ALL — introduced this session (LC #1789); got it right when prompted about overlap
 - [ ] SELECT / WHERE filtering
 - [ ] String functions (UPPER/LOWER, CONCAT, LIKE, REGEXP)
 - [ ] Window functions (PARTITION BY, ROW_NUMBER/RANK/DENSE_RANK, running totals)
@@ -68,3 +89,7 @@ For full curriculum and problem status → [TRACKER.md](../TRACKER.md)
 
 ## Notes
 Strong session — 7 problems, mostly independent solves. Derived-table pattern fully internalized (3rd clean application). Two new patterns introduced: COUNT(DISTINCT) and HAVING with scalar subquery. Date arithmetic in Postgres still causes friction.
+
+Session 6 — 2 problems. UNION introduced (LC #1789). Derived-table pattern applied independently a 4th time (LC #1731). FLOOR vs ROUND clarified. COUNT(boolean) trap answered correctly cold for the first time.
+
+Session 7–8 — 5 problems. Triangle Judgement clean first-attempt. Consecutive Numbers via triple self-join (needed LC #197 reminder). Product Price at a Given Date hardest problem yet — two-case UNION combining derived-table and anti-join, needed guidance on case 2. Last Person to Fit in Bus — first window function introduced (SUM OVER ORDER BY). Count Salary Categories — clean first attempt via UNION.

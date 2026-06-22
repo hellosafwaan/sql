@@ -2,9 +2,16 @@
 
 Open questions to probe in upcoming sessions. Mark answered items inline when they come up.
 
-## Open (updated 2026-06-18)
+## Open (updated 2026-06-22, session 7)
 
-- **COUNT(boolean) trap** — probed cold at session start (2026-06-18), still got it wrong ("counts TRUE and FALSE"). Explained again. Keep probing every session before first aggregation problem.
+- **COUNT(boolean) trap** — answered correctly cold for the first time (session 6, 2026-06-18). Probe one or two more times before retiring this.
+- **UNION vs UNION ALL** — introduced LC #1789. Got it right when prompted about the overlap case. Probe cold next time UNION appears: "which one deduplicates?"
+- **WHERE vs HAVING** — needed a reminder in LC #1789 (COUNT filter → HAVING, not WHERE). Probe before next aggregation with a filter on the count.
+- **MIN(col) for non-GROUP-BY SELECT in Postgres** — new in session 6 (LC #1789). When HAVING guarantees one value per group, MIN is the safe workaround. Probe cold next time this shape appears.
+- **Anti-join in composite context** — solid for simple cases, needed full walkthrough when embedded as case 2 of a UNION (LC #1164). Probe: "what does LEFT JOIN without WHERE IS NULL return?"
+- **Self-join for consecutive rows** — introduced LC #180. Needed LC #197 reminder. Probe cold next time adjacency detection appears: "how do you compare a row to the one next to it?"
+- **UNION for two-case problems** — third application LC #1907 (independently). Solidifying. Still probe cold: "when would you use UNION vs UNION ALL?"
+- **Window functions** — introduced LC #1204 (SUM OVER ORDER BY). New territory. Probe cold next time a running total appears: "how do you compute a running sum without collapsing rows?"
 - **Postgres date arithmetic** — `'date'::date - INTERVAL 'N days'` causes friction. BETWEEN + computed lower bound fails; must use >= / <=. The ::date cast is needed. Probe before next date-filter problem.
 - **Inclusive date window off-by-one** — subtract N-1 days for an N-day window ending on day X. Probe cold.
 - **Scalar subquery in HAVING** — new context this session (LC #1045). Previously only seen in SELECT. Probe cold next time a "has all of X" or comparison-against-global-count pattern appears.

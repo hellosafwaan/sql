@@ -27,6 +27,7 @@ Maps recurring patterns to the problems where they showed up. Check this at sess
 - LC #1661 — Average Time of Process (self-join with role pinning via activity_type)
 - LC #577 — Employee Bonus (anti-join with additional < filter)
 - LC #1280 — Students and Examinations (CROSS JOIN + LEFT JOIN)
+- LC #1731 — Number of Employees Which Report to Each Employee (self-join: manager vs reportee roles; GROUP BY + ROUND(AVG))
 
 ## CROSS JOIN
 - LC #1280 — Students and Examinations (all-combinations base set)
@@ -71,3 +72,20 @@ Maps recurring patterns to the problems where they showed up. Check this at sess
 
 ## Date Range Filtering (Postgres)
 - LC #1141 — User Activity 30 Days (col >= 'date'::date - INTERVAL 'N days' AND col <= 'date'; inclusive window = N-1 days back)
+
+## UNION / UNION ALL
+- LC #1789 — Primary Department for Each Employee (UNION for two-case conditional selection; UNION deduplicates, UNION ALL keeps all rows)
+- LC #1164 — Product Price at a Given Date (UNION combining derived-table case 1 with anti-join case 2 for default value)
+
+## Two-Case Conditional Selection
+- LC #1789 — Primary Department for Each Employee (case 1: explicit flag; case 2: single-department employee → combine with UNION)
+- LC #1164 — Product Price at a Given Date (case 1: derived-table for most recent price; case 2: anti-join for default price = 10)
+
+## Consecutive Row Detection (Self-join on id offset)
+- LC #180 — Consecutive Numbers (alias table 3x, chain id + 1 in JOIN, WHERE for equal values, DISTINCT for dedup)
+
+## Window Functions
+- LC #1204 — Last Person to Fit in the Bus (SUM(weight) OVER (ORDER BY turn) for running total; wrap in subquery to filter on result)
+
+## UNION for Guaranteed Output Categories
+- LC #1907 — Count Salary Categories (hardcode category per SELECT, UNION to combine; COUNT(*) on empty = 0 ensures row always appears)

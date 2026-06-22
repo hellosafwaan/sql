@@ -1,7 +1,7 @@
 # SQL Curriculum — LeetCode Database Track
 
 Goal: Interview-ready SQL (analytics + backend interview rounds)
-Total: 10 phases, ~69 problems
+Total: 10 phases, ~73 problems
 Dialect: MySQL (LeetCode's default) — flag dialect-specific syntax (e.g. `IFNULL` vs `COALESCE`, `DATEDIFF`) when it comes up.
 
 > Note: LeetCode occasionally renumbers or retires problems. If a link 404s, search the title on leetcode.com/problemset/database/ instead of guessing a new number.
@@ -105,6 +105,9 @@ Dialect: MySQL (LeetCode's default) — flag dialect-specific syntax (e.g. `IFNU
 | 5 | Sales Analysis I | Easy | [LC #1082](https://leetcode.com/problems/sales-analysis-i/) | JOIN + aggregation |
 | 6 | Sales Analysis III | Easy | [LC #1084](https://leetcode.com/problems/sales-analysis-iii/) | JOIN + date range filter |
 | 7 | The Most Recent Three Orders | Medium | [LC #1532](https://leetcode.com/problems/the-most-recent-three-orders/) | JOIN + top-N-per-group |
+| — | The Number of Employees Which Report to Each Employee *(bonus)* | Easy | [LC #1731](https://leetcode.com/problems/the-number-of-employees-which-report-to-each-employee/) | Self-join + GROUP BY + ROUND(AVG) |
+| — | Primary Department for Each Employee *(bonus)* | Easy | [LC #1789](https://leetcode.com/problems/primary-department-for-each-employee/) | UNION for two-case conditional selection |
+| — | Product Price at a Given Date *(bonus)* | Medium | [LC #1164](https://leetcode.com/problems/product-price-at-a-given-date/) | Derived-table + anti-join UNION for default value |
 
 ---
 
@@ -137,6 +140,7 @@ Dialect: MySQL (LeetCode's default) — flag dialect-specific syntax (e.g. `IFNU
 | 2 | Running Total for Different Genders | Medium | [LC #1308](https://leetcode.com/problems/running-total-for-different-genders/) | SUM() OVER (PARTITION BY ... ORDER BY ...) |
 | 3 | Game Play Analysis I | Easy | [LC #511](https://leetcode.com/problems/game-play-analysis-i/) | MIN() + GROUP BY (warm-up) |
 | 4 | Game Play Analysis IV | Medium | [LC #550](https://leetcode.com/problems/game-play-analysis-iv/) | Self-JOIN on date offset + ROUND |
+| — | Last Person to Fit in the Bus *(bonus)* | Medium | [LC #1204](https://leetcode.com/problems/last-person-to-fit-in-the-bus/) | SUM() OVER (ORDER BY) running total |
 | 5 | Median Employee Salary | Hard | [LC #569](https://leetcode.com/problems/median-employee-salary/) | RANK()/ROW_NUMBER() within partition |
 | 6 | Find Cumulative Salary of an Employee | Hard | [LC #579](https://leetcode.com/problems/find-cumulative-salary-of-an-employee/) | SUM() OVER with row range |
 

@@ -71,14 +71,20 @@ SQL-specific observations from real sessions:
 - WHERE-kills-LEFT-JOIN: first seen in LC #1251. Putting a right-table filter in WHERE eliminates LEFT JOIN's null rows. Probe on next LEFT JOIN + date range problem.
 - Weighted average formula: `SUM(value * weight) / SUM(weight)` — first seen in LC #1251. Probe cold next time units/weights appear.
 - CASE WHEN: introduced LC #1211, applied independently in LC #1193. Solidifying.
-- COUNT(boolean) trap: hit session start probe cold on 2026-06-18 and still got it wrong ("counts TRUE and FALSE"). Probe this before every aggregation problem: "if you write COUNT(condition), what does that count?" — the answer is "every non-NULL row, which means everything since boolean never returns NULL."
+- COUNT(boolean) trap: got it wrong cold at session start (2026-06-18, session 5). **Answered correctly cold for the first time in session 6 (2026-06-18)** — said "all non-null values." Probe one or two more times before retiring.
 - TO_CHAR(date, 'YYYY-MM'): first seen in LC #1193 for month grouping. Must appear in GROUP BY.
 - Scalar subquery in SELECT: first seen in LC #1633. Used in LC #1045 in HAVING context (new). Probe cold next time a global total is needed as a divisor or comparison target.
-- Derived-table subquery: **solid as of 2026-06-18** — three clean applications (LC #1174, #550, #1070). Stop probing actively.
+- Derived-table subquery: **solid as of 2026-06-18** — five+ clean independent applications. Stop probing actively.
+- Consecutive row detection via self-join (id offset): introduced LC #180 (2026-06-22). Needed LC #197 reminder. Probe cold next adjacency detection problem.
+- Anti-join in composite context: solid for standalone "find unmatched rows" queries. Needed full walkthrough when embedded as case 2 of a UNION (LC #1164, 2026-06-22). The confusion: LEFT JOIN without WHERE IS NULL returns all rows — the filter is what makes it an anti-join. Probe before next complex multi-case query.
+- UNION vs UNION ALL: introduced LC #1789. Got it right when prompted about the overlap case — UNION deduplicates, UNION ALL does not. Probe cold next time UNION appears.
+- WHERE vs HAVING: needed a reminder in LC #1789. Still not automatic under pressure. Probe before aggregation problems with count-based filters.
+- FLOOR vs ROUND: used FLOOR for "round to nearest integer" in LC #1731. One correction was enough. Should not recur.
 - COUNT(DISTINCT col): first used in LC #2356, applied cleanly across 3 problems this session. Solid.
 - Postgres date arithmetic: `'date'::date - INTERVAL 'N days'` — still causing friction. BETWEEN with computed lower bound fails in Postgres (precedence issue). Must use >= / <=. String needs ::date cast before interval subtraction. Off-by-one: N-day inclusive window = subtract N-1. Probe before next date-filter problem.
 - "Do I need this JOIN?": reached for JOIN unnecessarily in LC #619 and #1045 (2026-06-18). Before each new problem ask: "does the output need rows from a second table?" Two clean counter-examples now logged.
 - Session format: prefers to batch multiple problems in one sitting and wrap up all at the end. Wrap-up is user-triggered per batch.
+- Window functions: introduced LC #1204 (2026-06-22) with `SUM() OVER (ORDER BY)` for running totals. Had no prior exposure. Picked up the shape quickly once explained. Phase 8 will introduce PARTITION BY — expect that to need a trace-table walkthrough.
 
 **Watch for, specific to SQL (update as sessions accumulate):**
 - NULL handling — `NULL = NULL` is not `TRUE`, `IS NULL`/`IS NOT NULL` not `= NULL`. Watch for this surfacing in Phase 1 (Find Customer Referee is designed to expose exactly this) and flag it as a concept, not a typo, the first time it bites. Not yet encountered in a WHERE filter context.

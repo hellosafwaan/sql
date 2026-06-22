@@ -1,6 +1,6 @@
 # SQL Master Tracker
 
-Last updated: 2026-06-17
+Last updated: 2026-06-22
 
 ## Pace
 **Target:** TBD — set once first few sessions establish a rhythm
@@ -12,10 +12,10 @@ Last updated: 2026-06-17
 ## Summary
 | Metric | Count |
 |--------|-------|
-| Total problems | 69 |
-| ✅ Complete | 24 |
+| Total problems | 73 |
+| ✅ Complete | 31 |
 | ⚠️ Needs revisit | 0 |
-| ⏳ Not started | 45 |
+| ⏳ Not started | 42 |
 
 ---
 
@@ -24,11 +24,11 @@ Last updated: 2026-06-17
 |---|-------|----------|------|-------------|--------|
 | 1 | SELECT Basics | 6 | 0 | TBD | ⏳ |
 | 2 | String & Date Functions | 5 | 1 | TBD | ⏳ |
-| 3 | Basic Aggregation Functions | 6 | 4 | TBD | ⏳ |
+| 3 | Basic Aggregation Functions | 6 | 5 | TBD | ⏳ |
 | 4 | Sorting and Grouping | 5 | 0 | TBD | ⏳ |
 | 5 | Basic Joins | 5 | 3 | TBD | ⏳ |
-| 6 | Advanced Select and Joins | 7 | 2 | TBD | ⏳ |
-| 7 | Subqueries | 6 | 1 | TBD | ⏳ |
+| 6 | Advanced Select and Joins | 10 | 5 | TBD | ⏳ |
+| 7 | Subqueries | 6 | 3 | TBD | ⏳ |
 | 8 | Window Functions | 6 | 1 | TBD | ⏳ |
 | 9 | Date/Time & Pivoting | 5 | 1 | TBD | ⏳ |
 | 10 | Mixed / Hard Practice | 7 | 0 | TBD | ⏳ |
@@ -65,7 +65,7 @@ Last updated: 2026-06-17
 | 3 | Customer Placing the Largest Number of Orders | Easy | [#586](https://leetcode.com/problems/customer-placing-the-largest-number-of-orders/) | GROUP BY + ORDER BY + LIMIT | ⏳ | — | — |
 | 4 | Employee Bonus | Easy | [#577](https://leetcode.com/problems/employee-bonus/) | LEFT JOIN + filter | ✅ | 2026-06-17 | [learnings](queries/577-employee-bonus/learnings.md) |
 | 5 | Managers with at Least 5 Direct Reports | Medium | [#570](https://leetcode.com/problems/managers-with-at-least-5-direct-reports/) | Self-JOIN + GROUP BY + HAVING | ✅ | 2026-06-17 | [learnings](queries/570-managers-with-at-least-5-direct-reports/learnings.md) |
-| 6 | Count Salary Categories | Medium | [#1907](https://leetcode.com/problems/count-salary-categories/) | CASE WHEN + GROUP BY (bucketing) | ⏳ | — | — |
+| 6 | Count Salary Categories | Medium | [#1907](https://leetcode.com/problems/count-salary-categories/) | UNION for guaranteed output categories | ✅ | 2026-06-22 | [learnings](queries/1907-count-salary-categories/learnings.md) |
 | — | Not Boring Movies *(bonus)* | Easy | [#620](https://leetcode.com/problems/not-boring-movies/) | WHERE + modulo + ORDER BY | ✅ | 2026-06-17 | [learnings](queries/620-not-boring-movies/learnings.md) |
 | — | Average Selling Price *(bonus)* | Easy | [#1251](https://leetcode.com/problems/average-selling-price/) | LEFT JOIN + weighted average + COALESCE | ✅ | 2026-06-17 | [learnings](queries/1251-average-selling-price/learnings.md) |
 | — | Percentage of Users Attended a Contest *(bonus)* | Easy | [#1633](https://leetcode.com/problems/percentage-of-users-attended-a-contest/) | GROUP BY + scalar subquery denominator | ✅ | 2026-06-17 | [learnings](queries/1633-percentage-of-users-attended-a-contest/learnings.md) |
@@ -107,6 +107,9 @@ Last updated: 2026-06-17
 | 5 | Sales Analysis I | Easy | [#1082](https://leetcode.com/problems/sales-analysis-i/) | JOIN + aggregation | ⏳ | — | — |
 | 6 | Sales Analysis III | Easy | [#1084](https://leetcode.com/problems/sales-analysis-iii/) | JOIN + date range filter | ⏳ | — | — |
 | 7 | The Most Recent Three Orders | Medium | [#1532](https://leetcode.com/problems/the-most-recent-three-orders/) | JOIN + top-N-per-group | ⏳ | — | — |
+| — | The Number of Employees Which Report to Each Employee *(bonus)* | Easy | [#1731](https://leetcode.com/problems/the-number-of-employees-which-report-to-each-employee/) | Self-join + GROUP BY + ROUND(AVG) | ✅ | 2026-06-18 | [learnings](queries/1731-number-of-employees-which-report-to-each-employee/learnings.md) |
+| — | Primary Department for Each Employee *(bonus)* | Easy | [#1789](https://leetcode.com/problems/primary-department-for-each-employee/) | UNION for two-case conditional selection | ✅ | 2026-06-18 | [learnings](queries/1789-primary-department-for-each-employee/learnings.md) |
+| — | Product Price at a Given Date *(bonus)* | Medium | [#1164](https://leetcode.com/problems/product-price-at-a-given-date/) | Derived-table + anti-join UNION for default value | ✅ | 2026-06-22 | [learnings](queries/1164-product-price-at-a-given-date/learnings.md) |
 
 ## Phase 7 — Subqueries ⏳
 
@@ -115,8 +118,8 @@ Last updated: 2026-06-17
 | 1 | Duplicate Emails | Easy | [#182](https://leetcode.com/problems/duplicate-emails/) | GROUP BY + HAVING (subquery alt.) | ⏳ | — | — |
 | 2 | Employees Earning More Than Their Managers | Easy | [#181](https://leetcode.com/problems/employees-earning-more-than-their-managers/) | Self-JOIN / correlated subquery | ⏳ | — | — |
 | 3 | Investments in 2016 | Medium | [#585](https://leetcode.com/problems/investments-in-2016/) | Subquery with multiple conditions | ⏳ | — | — |
-| 4 | Triangle Judgement | Easy | [#610](https://leetcode.com/problems/triangle-judgement/) | CASE WHEN, no subquery needed (control) | ⏳ | — | — |
-| 5 | Consecutive Numbers | Medium | [#180](https://leetcode.com/problems/consecutive-numbers/) | Self-JOIN on row offset | ⏳ | — | — |
+| 4 | Triangle Judgement | Easy | [#610](https://leetcode.com/problems/triangle-judgement/) | CASE WHEN, no subquery needed (control) | ✅ | 2026-06-22 | [learnings](queries/610-triangle-judgement/learnings.md) |
+| 5 | Consecutive Numbers | Medium | [#180](https://leetcode.com/problems/consecutive-numbers/) | Self-JOIN on row offset | ✅ | 2026-06-22 | [learnings](queries/180-consecutive-numbers/learnings.md) |
 | 6 | Students and Examinations | Medium | [#1280](https://leetcode.com/problems/students-and-examinations/) | CROSS JOIN + LEFT JOIN + GROUP BY | ✅ | 2026-06-17 | [learnings](queries/1280-students-and-examinations/learnings.md) |
 | — | Biggest Single Number *(bonus)* | Easy | [#619](https://leetcode.com/problems/biggest-single-number/) | GROUP BY + HAVING + outer MAX subquery | ✅ | 2026-06-18 | [learnings](queries/619-biggest-single-number/learnings.md) |
 | — | Customers Who Bought All Products *(bonus)* | Medium | [#1045](https://leetcode.com/problems/customers-who-bought-all-products/) | HAVING COUNT(DISTINCT) = scalar subquery | ✅ | 2026-06-18 | [learnings](queries/1045-customers-who-bought-all-products/learnings.md) |
@@ -129,6 +132,7 @@ Last updated: 2026-06-17
 | 2 | Running Total for Different Genders | Medium | [#1308](https://leetcode.com/problems/running-total-for-different-genders/) | SUM() OVER (PARTITION BY ... ORDER BY ...) | ⏳ | — | — |
 | 3 | Game Play Analysis I | Easy | [#511](https://leetcode.com/problems/game-play-analysis-i/) | MIN() + GROUP BY (warm-up) | ⏳ | — | — |
 | 4 | Game Play Analysis IV | Medium | [#550](https://leetcode.com/problems/game-play-analysis-iv/) | Derived-table subquery + date offset + fraction | ✅ | 2026-06-18 | [learnings](queries/550-game-play-analysis-iv/learnings.md) |
+| — | Last Person to Fit in the Bus *(bonus)* | Medium | [#1204](https://leetcode.com/problems/last-person-to-fit-in-the-bus/) | SUM() OVER (ORDER BY) running total; subquery to filter on window result | ✅ | 2026-06-22 | [learnings](queries/1204-last-person-to-fit-in-the-bus/learnings.md) |
 | 5 | Median Employee Salary | Hard | [#569](https://leetcode.com/problems/median-employee-salary/) | RANK()/ROW_NUMBER() within partition | ⏳ | — | — |
 | 6 | Find Cumulative Salary of an Employee | Hard | [#579](https://leetcode.com/problems/find-cumulative-salary-of-an-employee/) | SUM() OVER with row range | ⏳ | — | — |
 

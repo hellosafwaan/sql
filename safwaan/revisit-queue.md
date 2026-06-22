@@ -28,3 +28,10 @@ Cold redo schedule — problems get a revisit date ~3 weeks after first solve.
 | Find Followers Count | #1729 | 2026-06-18 | 2026-07-09 | ⏳ |
 | Biggest Single Number | #619 | 2026-06-18 | 2026-07-09 | ⏳ |
 | Customers Who Bought All Products | #1045 | 2026-06-18 | 2026-07-09 | ⏳ |
+| Number of Employees Which Report to Each Employee | #1731 | 2026-06-18 | 2026-07-09 | ⏳ |
+| Primary Department for Each Employee | #1789 | 2026-06-18 | 2026-07-09 | ⏳ |
+| Triangle Judgement | #610 | 2026-06-22 | 2026-07-13 | ⏳ |
+| Consecutive Numbers | #180 | 2026-06-22 | 2026-07-13 | ⏳ |
+| Product Price at a Given Date | #1164 | 2026-06-22 | 2026-07-13 | ⏳ |
+| Last Person to Fit in the Bus | #1204 | 2026-06-22 | 2026-07-13 | ⏳ |
+| Count Salary Categories | #1907 | 2026-06-22 | 2026-07-13 | ⏳ |

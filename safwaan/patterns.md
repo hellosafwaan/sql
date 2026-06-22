@@ -35,6 +35,18 @@ Hit the same Postgres integer division issue as LC #1934. Didn't recall the `::n
 ### COUNT(col = 'value') doesn't do what you think (LC #1934, #1211, #1193 — three times)
 Used `COUNT(action = 'confirmed')`, `COUNT(rating < 3)`, `COUNT(state = 'approved')` expecting conditional counts. COUNT ignores boolean truth — it only checks non-NULL. Boolean expressions never return NULL, so COUNT counts every row. The fix: `SUM(CASE WHEN condition THEN 1 ELSE 0 END)`. Hit three times now — still not recalled without prompting. Must become automatic.
 
+### GROUP BY as first instinct for consecutive rows (LC #180 — 2026-06-22)
+First instinct was to GROUP BY the same nums to find consecutives. GROUP BY collapses rows and loses position — you can see a number appeared 3 times but not whether they were adjacent. The right tool is a self-join on id offset. Worth watching for on future adjacency problems.
+
+### Anti-join pattern faded in complex context (LC #1164 — 2026-06-22)
+The anti-join (LEFT JOIN + WHERE IS NULL) is solid for simple "find unmatched rows" problems but needed a full walkthrough when embedded as case 2 of a UNION alongside a derived-table case 1. Also confused LEFT JOIN without WHERE IS NULL (returns all rows) with the filtered anti-join version.
+
+### FLOOR vs ROUND confusion (LC #1731 — 2026-06-18)
+Used `FLOOR(avg(age))` for "round to nearest integer." FLOOR always rounds down — `FLOOR(3.9) = 3`. ROUND rounds to nearest — `ROUND(3.9) = 4`. Needed to ask what FLOOR does before correcting. This is a vocabulary gap, not a logic gap.
+
+### UNION without knowing UNION vs UNION ALL (LC #1789 — 2026-06-18)
+Correctly identified UNION as the tool to combine two result sets but didn't remember the difference between UNION and UNION ALL. UNION deduplicates; UNION ALL keeps all rows including duplicates. Got it right when prompted about the overlap case (single-department employee with primary_flag = 'Y' appears in both queries).
+
 ### Over-reaching for JOIN when subquery suffices (LC #619, LC #1045 — 2026-06-18)
 Two problems this session where a JOIN was the wrong first instinct. LC #619: joined the subquery of single numbers back to MyNumbers unnecessarily — a simple outer SELECT MAX() was enough. LC #1045: wanted to JOIN Customer with Product to check "all products" — the real structure is COUNT(DISTINCT) in HAVING compared to a scalar subquery. Default question before writing a JOIN: "do I actually need columns from a second table in my output?"
 
@@ -72,10 +84,16 @@ Articulated the rule clearly after LC #1068: "Do I need rows with no match, or o
 - COUNT(DISTINCT col) — applied independently this session
 
 ## What's Still Developing
-- COUNT(boolean) trap — probed cold at session start, got it wrong again. Still needs explicit prompting before each aggregation problem.
+- COUNT(boolean) trap — **answered correctly cold for the first time this session (2026-06-18)**. Still probe for one or two more reps before calling it automatic.
 - PostgreSQL date arithmetic: `'date'::date - INTERVAL 'N days'` — still causes friction; BETWEEN + arithmetic fails, need >= / <=, need ::date cast
 - Off-by-one in inclusive date windows — subtract N-1, not N
 - Scalar subquery in HAVING — new this session (LC #1045). Previous uses were in SELECT. Probe cold next time.
 - WHERE-kills-LEFT-JOIN — seen once (LC #1251). Not yet reinforced.
 - Weighted average formula — seen once in LC #1251. Probe cold next time units/weights appear.
-- "Do I need this JOIN?" — reached for JOIN unnecessarily twice this session (LC #619, #1045). Probe before each new problem.
+- "Do I need this JOIN?" — reached for JOIN unnecessarily twice in session 5 (LC #619, #1045). Probe before each new problem.
+- UNION vs UNION ALL — introduced LC #1789, second application LC #1164. Getting more confident. Probe cold next time.
+- WHERE vs HAVING — needed a reminder in LC #1789 (COUNT filter must go in HAVING, not WHERE). Not a new pattern but not automatic yet.
+- MIN(col) workaround in Postgres for non-GROUP-BY SELECT — first seen LC #1789. Probe cold next time this shape appears.
+- Anti-join pattern in composite context — solid for simple cases but needed full walkthrough when used as case 2 of a UNION (LC #1164). Probe cold next time LEFT JOIN IS NULL appears in a more complex query.
+- Self-join for consecutive rows (LC #180) — needed LC #197 reminder to recall the pattern. Now has two consecutive-row applications. Probe cold next time adjacency detection appears.
+- Window functions (LC #1204) — completely new concept, introduced this session. SUM() OVER (ORDER BY) for running totals. Picked up the structure quickly once explained. Phase 8 will build on this.
