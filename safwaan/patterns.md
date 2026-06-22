@@ -82,18 +82,25 @@ Articulated the rule clearly after LC #1068: "Do I need rows with no match, or o
 - CASE WHEN for conditional aggregation — used correctly independently
 - Derived-table subquery (subquery in FROM + two-condition JOIN) — 3 clean applications, pattern solid
 - COUNT(DISTINCT col) — applied independently this session
+- String functions: UPPER, LOWER, SUBSTRING, CONCAT — all applied correctly once named
+- LIKE word-boundary patterns for space-delimited strings — two-case reasoning fully his
+- WHERE + HAVING distinction — correct on LC #1327 without prompting (HAVING for SUM filter, WHERE for date filter)
+- Date range filtering: `>= first_day AND < next_month_first_day` — applied independently, no hint needed
 
 ## What's Still Developing
-- COUNT(boolean) trap — **answered correctly cold for the first time this session (2026-06-18)**. Still probe for one or two more reps before calling it automatic.
+- COUNT(boolean) trap — **answered correctly cold for the first time (2026-06-18)**. Still probe one more time before retiring.
 - PostgreSQL date arithmetic: `'date'::date - INTERVAL 'N days'` — still causes friction; BETWEEN + arithmetic fails, need >= / <=, need ::date cast
 - Off-by-one in inclusive date windows — subtract N-1, not N
-- Scalar subquery in HAVING — new this session (LC #1045). Previous uses were in SELECT. Probe cold next time.
+- Scalar subquery in HAVING — new in LC #1045. Previous uses were in SELECT. Probe cold next time.
 - WHERE-kills-LEFT-JOIN — seen once (LC #1251). Not yet reinforced.
 - Weighted average formula — seen once in LC #1251. Probe cold next time units/weights appear.
-- "Do I need this JOIN?" — reached for JOIN unnecessarily twice in session 5 (LC #619, #1045). Probe before each new problem.
 - UNION vs UNION ALL — introduced LC #1789, second application LC #1164. Getting more confident. Probe cold next time.
-- WHERE vs HAVING — needed a reminder in LC #1789 (COUNT filter must go in HAVING, not WHERE). Not a new pattern but not automatic yet.
 - MIN(col) workaround in Postgres for non-GROUP-BY SELECT — first seen LC #1789. Probe cold next time this shape appears.
-- Anti-join pattern in composite context — solid for simple cases but needed full walkthrough when used as case 2 of a UNION (LC #1164). Probe cold next time LEFT JOIN IS NULL appears in a more complex query.
-- Self-join for consecutive rows (LC #180) — needed LC #197 reminder to recall the pattern. Now has two consecutive-row applications. Probe cold next time adjacency detection appears.
-- Window functions (LC #1204) — completely new concept, introduced this session. SUM() OVER (ORDER BY) for running totals. Picked up the structure quickly once explained. Phase 8 will build on this.
+- Anti-join pattern in composite context — solid for simple cases but needed full walkthrough in LC #1164. Probe cold next time.
+- Self-join for consecutive rows (LC #180) — needed LC #197 reminder. Probe cold next time adjacency detection appears.
+- Window functions (LC #1204) — brand new this session. SUM() OVER (ORDER BY) for running totals. Phase 8 will build on this.
+- Regex syntax (`~` operator, `^`, `$`, character classes) — brand new this session (LC #1517). Needed full explanation. Do not expect cold recall yet.
+- DELETE ... USING (Postgres) — brand new this session (LC #196). Probe cold if another DELETE problem appears.
+- LIMIT/OFFSET for Nth row — new this session (LC #176). Solid once shown — probe cold next time "Nth highest" appears.
+- SUBSTRING function name — didn't recall unprompted; applied correctly once named. Should be solid after one more rep.
+- STRING_AGG — brand new this session. Probe cold next time "comma-separated list per group" appears.

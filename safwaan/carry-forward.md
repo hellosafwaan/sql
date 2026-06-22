@@ -2,20 +2,27 @@
 
 Open questions to probe in upcoming sessions. Mark answered items inline when they come up.
 
-## Open (updated 2026-06-22, session 7)
+## Open (updated 2026-06-22, session 9)
 
-- **COUNT(boolean) trap** — answered correctly cold for the first time (session 6, 2026-06-18). Probe one or two more times before retiring this.
-- **UNION vs UNION ALL** — introduced LC #1789. Got it right when prompted about the overlap case. Probe cold next time UNION appears: "which one deduplicates?"
-- **WHERE vs HAVING** — needed a reminder in LC #1789 (COUNT filter → HAVING, not WHERE). Probe before next aggregation with a filter on the count.
-- **MIN(col) for non-GROUP-BY SELECT in Postgres** — new in session 6 (LC #1789). When HAVING guarantees one value per group, MIN is the safe workaround. Probe cold next time this shape appears.
-- **Anti-join in composite context** — solid for simple cases, needed full walkthrough when embedded as case 2 of a UNION (LC #1164). Probe: "what does LEFT JOIN without WHERE IS NULL return?"
-- **Self-join for consecutive rows** — introduced LC #180. Needed LC #197 reminder. Probe cold next time adjacency detection appears: "how do you compare a row to the one next to it?"
-- **UNION for two-case problems** — third application LC #1907 (independently). Solidifying. Still probe cold: "when would you use UNION vs UNION ALL?"
-- **Window functions** — introduced LC #1204 (SUM OVER ORDER BY). New territory. Probe cold next time a running total appears: "how do you compute a running sum without collapsing rows?"
-- **Postgres date arithmetic** — `'date'::date - INTERVAL 'N days'` causes friction. BETWEEN + computed lower bound fails; must use >= / <=. The ::date cast is needed. Probe before next date-filter problem.
-- **Inclusive date window off-by-one** — subtract N-1 days for an N-day window ending on day X. Probe cold.
-- **Scalar subquery in HAVING** — new context this session (LC #1045). Previously only seen in SELECT. Probe cold next time a "has all of X" or comparison-against-global-count pattern appears.
-- **"Do I need this JOIN?"** — reached for JOIN unnecessarily in LC #619 and #1045 this session. Before each new problem, probe: does the output need rows from a second table, or is this a counting/aggregation problem?
+- **Regex recall** — brand new this session (LC #1517). Probe cold: "what Postgres operator does regex matching?" and "what does `^` do in a regex pattern?"
+- **STRING_AGG** — new this session. Probe cold: "how do you produce a comma-separated list of values per group in Postgres?"
+- **DELETE ... USING (Postgres)** — new this session (LC #196). Probe cold if another DELETE problem appears: "how do you write a multi-table DELETE in Postgres?"
+- **LIMIT/OFFSET for Nth row** — new this session (LC #176). Probe cold: "how do you get the Nth row from an ordered result?"
+- **Scalar subquery null passthrough** — new context in LC #176 (empty subquery → NULL in outer SELECT). Probe cold: "how do you return NULL instead of an empty result?"
+- **SUBSTRING syntax** — didn't recall unprompted. Should stick after one more rep. Probe before next string manipulation problem.
+- **WHERE vs HAVING** — used correctly without a reminder in LC #1327 (HAVING for SUM ≥ 100, WHERE for date filter). This may be solidifying. One more clean rep and can retire this probe.
+
+## Carried Over
+
+- **COUNT(boolean) trap** — answered correctly cold for the first time (2026-06-18). Probe one more time before retiring.
+- **UNION vs UNION ALL** — probe cold: "which one deduplicates?"
+- **MIN(col) for non-GROUP-BY SELECT in Postgres** — first seen LC #1789. Probe cold next time this shape appears.
+- **Anti-join in composite context** — needed full walkthrough in LC #1164. Probe: "what does LEFT JOIN without WHERE IS NULL return?"
+- **Self-join for consecutive rows** — introduced LC #180, needed LC #197 reminder. Probe cold next adjacency detection problem.
+- **Window functions** — SUM() OVER (ORDER BY) introduced LC #1204. Probe cold: "how do you compute a running sum without collapsing rows?"
+- **Postgres date arithmetic** — `'date'::date - INTERVAL 'N days'`; BETWEEN + computed bound fails, use >= / <=. Probe before next date-filter problem.
+- **Inclusive date window off-by-one** — subtract N-1 for an N-day window. Probe cold.
+- **Scalar subquery in HAVING** — first seen LC #1045. Probe cold next "has all of X" pattern.
 
 ## Previously Open
 

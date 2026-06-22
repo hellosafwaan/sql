@@ -78,7 +78,14 @@ SQL-specific observations from real sessions:
 - Consecutive row detection via self-join (id offset): introduced LC #180 (2026-06-22). Needed LC #197 reminder. Probe cold next adjacency detection problem.
 - Anti-join in composite context: solid for standalone "find unmatched rows" queries. Needed full walkthrough when embedded as case 2 of a UNION (LC #1164, 2026-06-22). The confusion: LEFT JOIN without WHERE IS NULL returns all rows — the filter is what makes it an anti-join. Probe before next complex multi-case query.
 - UNION vs UNION ALL: introduced LC #1789. Got it right when prompted about the overlap case — UNION deduplicates, UNION ALL does not. Probe cold next time UNION appears.
-- WHERE vs HAVING: needed a reminder in LC #1789. Still not automatic under pressure. Probe before aggregation problems with count-based filters.
+- WHERE vs HAVING: used correctly without a reminder in LC #1327 (2026-06-22). May be solidifying — if LC #1873 is also clean, retire this probe.
+- String functions (UPPER/LOWER/CONCAT): known vocabulary. SUBSTRING: didn't recall name unprompted; applied immediately once named — one more rep should cement it.
+- LIKE word-boundary patterns: fully internalized (LC #1527, 2026-06-22). Two-case reasoning was entirely his. No need to probe this.
+- Regex (`~` operator, char classes, anchors `^`/`$`, `\.` escape): introduced LC #1517 (2026-06-22). Brand new — needed full explanation. Applied correctly after. Do not probe for cold recall yet.
+- STRING_AGG: introduced LC #1484 (2026-06-22). Probe cold next "comma-separated list per group" problem.
+- DELETE ... USING (Postgres): introduced LC #196 (2026-06-22). Logic was his; Postgres syntax was given. Probe cold next DELETE problem.
+- LIMIT/OFFSET for Nth row: introduced LC #176 (2026-06-22). Probe cold next "Nth highest" problem.
+- Scalar subquery null passthrough: new context in LC #176 — wrapping in outer SELECT returns NULL when inner is empty. Probe cold.
 - FLOOR vs ROUND: used FLOOR for "round to nearest integer" in LC #1731. One correction was enough. Should not recur.
 - COUNT(DISTINCT col): first used in LC #2356, applied cleanly across 3 problems this session. Solid.
 - Postgres date arithmetic: `'date'::date - INTERVAL 'N days'` — still causing friction. BETWEEN with computed lower bound fails in Postgres (precedence issue). Must use >= / <=. String needs ::date cast before interval subtraction. Off-by-one: N-day inclusive window = subtract N-1. Probe before next date-filter problem.

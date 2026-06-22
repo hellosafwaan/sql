@@ -12,10 +12,10 @@ Last updated: 2026-06-22
 ## Summary
 | Metric | Count |
 |--------|-------|
-| Total problems | 73 |
-| ✅ Complete | 31 |
+| Total problems | 76 |
+| ✅ Complete | 38 |
 | ⚠️ Needs revisit | 0 |
-| ⏳ Not started | 42 |
+| ⏳ Not started | 38 |
 
 ---
 
@@ -23,9 +23,9 @@ Last updated: 2026-06-22
 | # | Phase | Problems | Done | Target Date | Status |
 |---|-------|----------|------|-------------|--------|
 | 1 | SELECT Basics | 6 | 0 | TBD | ⏳ |
-| 2 | String & Date Functions | 5 | 1 | TBD | ⏳ |
+| 2 | String & Date Functions | 5 | 4 | TBD | ⏳ |
 | 3 | Basic Aggregation Functions | 6 | 5 | TBD | ⏳ |
-| 4 | Sorting and Grouping | 5 | 0 | TBD | ⏳ |
+| 4 | Sorting and Grouping | 5 | 1 | TBD | ⏳ |
 | 5 | Basic Joins | 5 | 3 | TBD | ⏳ |
 | 6 | Advanced Select and Joins | 10 | 5 | TBD | ⏳ |
 | 7 | Subqueries | 6 | 3 | TBD | ⏳ |
@@ -50,10 +50,11 @@ Last updated: 2026-06-22
 
 | # | Problem | Difficulty | LC | Pattern | Status | Solved | Learnings |
 |---|---------|------------|----|---------|--------|--------|-----------|
-| 1 | Fix Names in a Table | Easy | [#1667](https://leetcode.com/problems/fix-names-in-a-table/) | UPPER/LOWER + CONCAT | ⏳ | — | — |
-| 2 | Patients With a Condition | Easy | [#1527](https://leetcode.com/problems/patients-with-a-condition/) | LIKE pattern matching | ⏳ | — | — |
-| 3 | Find Users With Valid E-Mails | Easy | [#1517](https://leetcode.com/problems/find-users-with-valid-emails/) | REGEXP | ⏳ | — | — |
+| 1 | Fix Names in a Table | Easy | [#1667](https://leetcode.com/problems/fix-names-in-a-table/) | UPPER/LOWER + CONCAT | ✅ | 2026-06-22 | [learnings](queries/1667-fix-names-in-a-table/learnings.md) |
+| 2 | Patients With a Condition | Easy | [#1527](https://leetcode.com/problems/patients-with-a-condition/) | LIKE pattern matching | ✅ | 2026-06-22 | [learnings](queries/1527-patients-with-a-condition/learnings.md) |
+| 3 | Find Users With Valid E-Mails | Easy | [#1517](https://leetcode.com/problems/find-users-with-valid-emails/) | REGEXP | ✅ | 2026-06-22 | [learnings](queries/1517-find-users-with-valid-e-mails/learnings.md) |
 | 4 | Calculate Special Bonus | Easy | [#1873](https://leetcode.com/problems/calculate-special-bonus/) | CASE WHEN | ⏳ | — | — |
+| — | Delete Duplicate Emails *(bonus)* | Easy | [#196](https://leetcode.com/problems/delete-duplicate-emails/) | DELETE with self-join; Postgres USING syntax | ✅ | 2026-06-22 | [learnings](queries/196-delete-duplicate-emails/learnings.md) |
 | 5 | Replace Employee ID With The Unique Identifier | Easy | [#1378](https://leetcode.com/problems/replace-employee-id-with-the-unique-identifier/) | LEFT JOIN, NULL passthrough | ✅ | 2026-06-17 | [learnings](queries/1378-replace-employee-id-with-the-unique-identifier/learnings.md) |
 
 ## Phase 3 — Basic Aggregation Functions ⏳
@@ -74,12 +75,14 @@ Last updated: 2026-06-22
 | — | Number of Unique Subjects Taught by Each Teacher *(bonus)* | Easy | [#2356](https://leetcode.com/problems/number-of-unique-subjects-taught-by-each-teacher/) | COUNT(DISTINCT) per group | ✅ | 2026-06-18 | [learnings](queries/2356-number-of-unique-subjects-taught-by-each-teacher/learnings.md) |
 | — | User Activity for the Past 30 Days I *(bonus)* | Easy | [#1141](https://leetcode.com/problems/user-activity-for-the-past-30-days-i/) | COUNT DISTINCT + date range filter | ✅ | 2026-06-18 | [learnings](queries/1141-user-activity-for-the-past-30-days-i/learnings.md) |
 | — | Find Followers Count *(bonus)* | Easy | [#1729](https://leetcode.com/problems/find-followers-count/) | GROUP BY + COUNT + ORDER BY | ✅ | 2026-06-18 | [learnings](queries/1729-find-followers-count/learnings.md) |
+| — | Group Sold Products By The Date *(bonus)* | Easy | [#1484](https://leetcode.com/problems/group-sold-products-by-the-date/) | STRING_AGG + COUNT(DISTINCT) per group | ✅ | 2026-06-22 | [learnings](queries/1484-group-sold-products-by-the-date/learnings.md) |
+| — | List the Products Ordered in a Period *(bonus)* | Easy | [#1327](https://leetcode.com/problems/list-the-products-ordered-in-a-period/) | JOIN + date range filter + HAVING | ✅ | 2026-06-22 | [learnings](queries/1327-list-the-products-ordered-in-a-period/learnings.md) |
 
 ## Phase 4 — Sorting and Grouping ⏳
 
 | # | Problem | Difficulty | LC | Pattern | Status | Solved | Learnings |
 |---|---------|------------|----|---------|--------|--------|-----------|
-| 1 | Second Highest Salary | Medium | [#176](https://leetcode.com/problems/second-highest-salary/) | DISTINCT + LIMIT/OFFSET or subquery | ⏳ | — | — |
+| 1 | Second Highest Salary | Medium | [#176](https://leetcode.com/problems/second-highest-salary/) | DISTINCT + LIMIT/OFFSET + scalar subquery null handling | ✅ | 2026-06-22 | [learnings](queries/176-second-highest-salary/learnings.md) |
 | 2 | Department Highest Salary | Medium | [#184](https://leetcode.com/problems/department-highest-salary/) | Correlated subquery / window | ⏳ | — | — |
 | 3 | Rank Scores | Medium | [#178](https://leetcode.com/problems/rank-scores/) | Dense ranking without RANK() | ⏳ | — | — |
 | 4 | Department Top Three Salaries | Hard | [#185](https://leetcode.com/problems/department-top-three-salaries/) | Top-N-per-group | ⏳ | — | — |

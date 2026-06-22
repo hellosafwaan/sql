@@ -35,3 +35,10 @@ Cold redo schedule — problems get a revisit date ~3 weeks after first solve.
 | Product Price at a Given Date | #1164 | 2026-06-22 | 2026-07-13 | ⏳ |
 | Last Person to Fit in the Bus | #1204 | 2026-06-22 | 2026-07-13 | ⏳ |
 | Count Salary Categories | #1907 | 2026-06-22 | 2026-07-13 | ⏳ |
+| Fix Names in a Table | #1667 | 2026-06-22 | 2026-07-13 | ⏳ |
+| Patients With a Condition | #1527 | 2026-06-22 | 2026-07-13 | ⏳ |
+| Delete Duplicate Emails | #196 | 2026-06-22 | 2026-07-13 | ⏳ |
+| Second Highest Salary | #176 | 2026-06-22 | 2026-07-13 | ⏳ |
+| Group Sold Products By The Date | #1484 | 2026-06-22 | 2026-07-13 | ⏳ |
+| List the Products Ordered in a Period | #1327 | 2026-06-22 | 2026-07-13 | ⏳ |
+| Find Users With Valid E-Mails | #1517 | 2026-06-22 | 2026-07-13 | ⏳ |

@@ -6,7 +6,10 @@ Maps recurring patterns to the problems where they showed up. Check this at sess
 - LC #620 — Not Boring Movies (WHERE + modulo for odd/even, `<>` vs `NOT LIKE` without wildcards)
 
 ## String Functions
-*(none yet)*
+- LC #1667 — Fix Names in a Table (UPPER/LOWER + SUBSTRING + CONCAT; SUBSTRING(1,1) vs MySQL quirk SUBSTRING(0,2))
+- LC #1527 — Patients With a Condition (LIKE word-boundary: two patterns cover "first code" and "later code")
+- LC #1517 — Find Users With Valid E-Mails (Postgres `~` regex operator; `^`, `$`, character classes, `\.` escape)
+- LC #1484 — Group Sold Products By The Date (STRING_AGG(DISTINCT col, sep ORDER BY col); MySQL equiv: GROUP_CONCAT)
 
 ## Aggregation (GROUP BY / HAVING)
 - LC #1581 — Customer Who Visited (GROUP BY after anti-join, COUNT)
@@ -18,6 +21,12 @@ Maps recurring patterns to the problems where they showed up. Check this at sess
 - LC #1075 — Project Employees I (AVG(int) returns numeric in Postgres — no ::numeric needed; GROUP BY included pre-emptively first time)
 - LC #1211 — Queries Quality and Percentage (CASE WHEN conditional aggregation, AVG(int::numeric/int) for ratio, ::numeric on SUM for percentage)
 - LC #1045 — Customers Who Bought All Products (HAVING with scalar subquery comparison)
+
+## DELETE with Self-join
+- LC #196 — Delete Duplicate Emails (Postgres: DELETE FROM t1 USING t2 WHERE join + filter; MySQL: DELETE t1 FROM t1 JOIN t2)
+
+## LIMIT / OFFSET (Nth row)
+- LC #176 — Second Highest Salary (ORDER BY DESC + LIMIT 1 OFFSET N-1; wrap in outer SELECT for NULL passthrough)
 
 ## Joins (INNER / LEFT / Self-join / Anti-join)
 - LC #1378 — Replace Employee ID (LEFT JOIN, NULL passthrough)

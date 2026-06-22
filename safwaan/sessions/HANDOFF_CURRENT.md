@@ -1,47 +1,56 @@
-# Handoff — 2026-06-22 (Sessions 7–8, 5 problems)
+# Handoff — 2026-06-22 (Session 9, 7 problems)
 
 ## What Was Completed This Session
 
 | Session | Problem | LC | Key Pattern |
 |---------|---------|-----|-------------|
-| 027 | Triangle Judgement | #610 | CASE WHEN row-level labeling — clean first attempt |
-| 028 | Consecutive Numbers | #180 | Triple self-join on id offset; needed LC #197 reminder |
-| 029 | Product Price at a Given Date | #1164 | UNION: derived-table (most recent price) + anti-join (default = 10) |
-| 030 | Last Person to Fit in the Bus | #1204 | First window function: SUM() OVER (ORDER BY) running total |
-| 031 | Count Salary Categories | #1907 | UNION for guaranteed output categories; COUNT(*) on empty = 0 |
+| 032 | Fix Names in a Table | #1667 | SUBSTRING + UPPER/LOWER + CONCAT — knew the approach, just needed function name |
+| 033 | Patients With a Condition | #1527 | Two LIKE patterns for word-boundary match — fully his reasoning |
+| 034 | Delete Duplicate Emails | #196 | DELETE with self-join; Postgres USING syntax given |
+| 035 | Second Highest Salary | #176 | LIMIT/OFFSET introduced; outer SELECT null passthrough explained |
+| 036 | Group Sold Products By The Date | #1484 | STRING_AGG introduced; DISTINCT placement corrected |
+| 037 | List the Products Ordered in a Period | #1327 | JOIN + date range + HAVING — solid independent solve |
+| 038 | Find Users With Valid E-Mails | #1517 | First regex problem — full syntax explained, applied correctly |
 
 ## Safwaan's Current State
 
 **Solid:**
-- CASE WHEN — fully independent
-- Derived-table subquery — 5+ applications, automatic
-- GROUP BY completeness — automatic
-- COUNT(DISTINCT col) — automatic
+- CASE WHEN, GROUP BY completeness, COUNT(DISTINCT), anti-join, derived-table subquery — all automatic
 - INNER vs LEFT JOIN decision rule — automatic
-- Anti-join (simple standalone cases) — automatic
-- UNION for two-case problems — 3 applications, solidifying
-- COUNT(*) on empty set = 0 — understands this correctly
+- String functions: UPPER, LOWER, CONCAT — knows them; SUBSTRING needs the name given once
+- LIKE word-boundary patterns — two-case reasoning fully internalized
+- WHERE vs HAVING — used correctly without a reminder in LC #1327 (may be solidifying)
+- Date range filtering: `>= first_day AND < next_month` — applied independently
 
-**Gaps to probe next session:**
-- **Window functions** — brand new this session (LC #1204). `SUM() OVER (ORDER BY)` introduced. Probe cold next time a running total appears.
-- **Anti-join in composite context** — needed full walkthrough in LC #1164. Probe: "what does LEFT JOIN return without WHERE IS NULL?"
-- **Self-join for consecutive rows** — needed LC #197 reminder in LC #180. Probe cold next adjacency detection problem.
-- **UNION vs UNION ALL** — probe cold: "which one deduplicates?"
-- **WHERE vs HAVING** — still not fully automatic. Probe before next count-based filter.
-- **COUNT(boolean) trap** — probe one more time before retiring.
-- **Postgres date arithmetic** — not tested this session. Probe before next date-filter problem.
+**New this session (probe before assuming known):**
+- Regex: `~` operator, `^`/`$` anchors, `[char-class]`, `\.` escape — brand new, don't expect cold recall
+- STRING_AGG — brand new; probe cold if "comma-separated list" appears
+- DELETE ... USING (Postgres) — brand new
+- LIMIT/OFFSET for Nth row — new; should stick with one more rep
+- Scalar subquery null passthrough (outer SELECT → NULL when empty) — new context
+
+**Still developing:**
+- UNION vs UNION ALL — probe cold: "which one deduplicates?"
+- Window functions (SUM OVER ORDER BY) — brand new in LC #1204 last session; probe cold
+- Self-join for consecutive rows — probe cold next adjacency problem
+- Postgres date arithmetic (::date + INTERVAL) — not tested this session; probe before next date problem
+- COUNT(boolean) trap — one more cold probe before retiring
 
 ## Suggested Next Problems
 
-From curriculum in order:
-- LC #183 — Customers Who Never Order (anti-join cold rep)
-- LC #607 — Sales Person (multi-table anti-join)
-- LC #176 — Second Highest Salary (Phase 4 start)
-- LC #511 — Game Play Analysis I (Phase 8 warm-up, MIN + GROUP BY — easy entry to window function phase)
+Phase 2 (one remaining):
+- LC #1873 — Calculate Special Bonus (CASE WHEN + modulo — easy win, closes Phase 2)
+
+Phase 4 (just started):
+- LC #184 — Department Highest Salary (correlated subquery / window — good complexity jump)
+
+Phase 5 (anti-join cold reps):
+- LC #183 — Customers Who Never Order
+- LC #607 — Sales Person
 
 ## Coach Notes
 
-- Window functions properly start in Phase 8 — LC #1204 was a preview. When Phase 8 begins, PARTITION BY will be the new concept to introduce carefully (it resets the window per group).
-- Phase 3 is now 5/6 complete — only LC #1741 (Find Total Time Spent) remaining.
-- Phase 7 is 3/6 complete — remaining: LC #182 (Duplicate Emails), LC #181 (Employees Earning More Than Managers), LC #585 (Investments in 2016).
-- LC #1907 used UNION instead of the expected CASE WHEN bucketing approach — Safwaan's approach is valid and arguably more reliable (zero-count guarantee). Worth noting CASE WHEN + reference table as an alternative when window functions are in scope.
+- Phase 2 is now 4/5 — only Calculate Special Bonus (#1873) remains. CASE WHEN is already solid so it should be fast.
+- String functions are now known vocabulary. Regex is not — treat it as fresh territory next time it appears.
+- WHERE vs HAVING used correctly twice in a row now — if LC #1873 is clean too, retire that probe.
+- This was a high-volume session (7 problems). Safwaan handled the variety well — string, DELETE, aggregation, regex all in one sitting.

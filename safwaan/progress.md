@@ -1,19 +1,31 @@
 # Safwaan — Progress (SQL Track)
 
 ## Current Phase
-**Phase 3 — Basic Aggregation Functions** (5/6 + bonuses). Also active: Phase 5 (3/5), Phase 6 (3/7), Phase 7 (1/6), Phase 8 (1/6), Phase 9 (1/5).
+**Phase 2 — String & Date Functions** (4/5 — only Calculate Special Bonus #1873 remaining). **Phase 3** complete (5/6 + bonuses). Also active: Phase 4 (1/5), Phase 5 (3/5), Phase 6 (3/7), Phase 7 (3/6), Phase 8 (1/6), Phase 9 (1/5).
 
 Next problems to continue in order:
-- Phase 2: Fix Names (#1667), Patients With a Condition (#1527), Find Valid Emails (#1517), Calculate Special Bonus (#1873)
-- Phase 3: Find Total Time Spent (#1741), Count Salary Categories (#1907)
+- Phase 2: Calculate Special Bonus (#1873) — only one remaining
+- Phase 3: Find Total Time Spent (#1741)
+- Phase 4: Department Highest Salary (#184), Rank Scores (#178)
 - Phase 5: Customers Who Never Order (#183), Sales Person (#607)
-- Phase 4: Second Highest Salary (#176), Department Highest Salary (#184), Rank Scores (#178)
 
 For full curriculum and problem status → [TRACKER.md](../TRACKER.md)
 
 ---
 
-## Recently Completed (2026-06-22 — Session 7–8, 5 problems)
+## Recently Completed (2026-06-22 — Session 9, 7 problems)
+
+- ✅ LC #1667 — Fix Names in a Table (Phase 2) — SUBSTRING + UPPER/LOWER + CONCAT
+- ✅ LC #1527 — Patients With a Condition (Phase 2) — two LIKE patterns for word-boundary match
+- ✅ LC #196 — Delete Duplicate Emails (bonus) — DELETE USING self-join (Postgres)
+- ✅ LC #176 — Second Highest Salary (Phase 4) — LIMIT/OFFSET + scalar subquery null handling
+- ✅ LC #1484 — Group Sold Products By The Date (bonus) — STRING_AGG + COUNT(DISTINCT)
+- ✅ LC #1327 — List the Products Ordered in a Period (bonus) — JOIN + date range + HAVING
+- ✅ LC #1517 — Find Users With Valid E-Mails (Phase 2) — first regex problem; `~` operator
+
+---
+
+## Previously Completed (2026-06-22 — Sessions 7–8, 5 problems)
 
 - ✅ LC #610 — Triangle Judgement (Phase 7) — clean first-attempt CASE WHEN
 - ✅ LC #180 — Consecutive Numbers (Phase 7) — triple self-join on id offset
@@ -82,7 +94,8 @@ For full curriculum and problem status → [TRACKER.md](../TRACKER.md)
 - [ ] Date range filter in Postgres (::date cast + INTERVAL) — hit multiple issues in session 5
 - [ ] UNION vs UNION ALL — introduced this session (LC #1789); got it right when prompted about overlap
 - [ ] SELECT / WHERE filtering
-- [ ] String functions (UPPER/LOWER, CONCAT, LIKE, REGEXP)
+- [x] String functions (UPPER/LOWER, SUBSTRING, CONCAT, LIKE word-boundary patterns) — solid
+- [ ] Regex (`~` operator, character classes, anchors) — introduced this session; new territory
 - [ ] Window functions (PARTITION BY, ROW_NUMBER/RANK/DENSE_RANK, running totals)
 
 ---

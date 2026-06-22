@@ -1,7 +1,7 @@
 # SQL Curriculum — LeetCode Database Track
 
 Goal: Interview-ready SQL (analytics + backend interview rounds)
-Total: 10 phases, ~73 problems
+Total: 10 phases, ~76 problems
 Dialect: MySQL (LeetCode's default) — flag dialect-specific syntax (e.g. `IFNULL` vs `COALESCE`, `DATEDIFF`) when it comes up.
 
 > Note: LeetCode occasionally renumbers or retires problems. If a link 404s, search the title on leetcode.com/problemset/database/ instead of guessing a new number.
@@ -36,6 +36,7 @@ Dialect: MySQL (LeetCode's default) — flag dialect-specific syntax (e.g. `IFNU
 | 3 | Find Users With Valid E-Mails | Easy | [LC #1517](https://leetcode.com/problems/find-users-with-valid-emails/) | REGEXP |
 | 4 | Calculate Special Bonus | Easy | [LC #1873](https://leetcode.com/problems/calculate-special-bonus/) | CASE WHEN |
 | 5 | Replace Employee ID With The Unique Identifier | Easy | [LC #1378](https://leetcode.com/problems/replace-employee-id-with-the-unique-identifier/) | LEFT JOIN, NULL passthrough |
+| — | Delete Duplicate Emails *(bonus)* | Easy | [LC #196](https://leetcode.com/problems/delete-duplicate-emails/) | DELETE with self-join; Postgres USING syntax |
 
 ---
 
@@ -58,6 +59,8 @@ Dialect: MySQL (LeetCode's default) — flag dialect-specific syntax (e.g. `IFNU
 | — | Number of Unique Subjects Taught by Each Teacher *(bonus)* | Easy | [LC #2356](https://leetcode.com/problems/number-of-unique-subjects-taught-by-each-teacher/) | COUNT(DISTINCT) per group |
 | — | User Activity for the Past 30 Days I *(bonus)* | Easy | [LC #1141](https://leetcode.com/problems/user-activity-for-the-past-30-days-i/) | COUNT DISTINCT + date range filter |
 | — | Find Followers Count *(bonus)* | Easy | [LC #1729](https://leetcode.com/problems/find-followers-count/) | GROUP BY + COUNT + ORDER BY |
+| — | Group Sold Products By The Date *(bonus)* | Easy | [LC #1484](https://leetcode.com/problems/group-sold-products-by-the-date/) | STRING_AGG + COUNT(DISTINCT) per group |
+| — | List the Products Ordered in a Period *(bonus)* | Easy | [LC #1327](https://leetcode.com/problems/list-the-products-ordered-in-a-period/) | JOIN + date range filter + HAVING |
 
 ---
 
