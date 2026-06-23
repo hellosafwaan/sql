@@ -3,6 +3,11 @@
 Maps recurring patterns to the problems where they showed up. Check this at session start once today's problem is known — see CLAUDE.md's Pattern Recall protocol.
 
 ## WHERE / Filtering
+- LC #1757 — Recyclable and Low Fat Products (WHERE + AND: both conditions must be true)
+- LC #584 — Find Customer Referee (WHERE + IS NULL: NULL comparisons return NULL, not TRUE — must use IS NULL explicitly)
+- LC #595 — Big Countries (WHERE + OR: either condition qualifies the row)
+- LC #1683 — Invalid Tweets (WHERE + LENGTH(): filter by computed string property)
+- LC #1148 — Article Views I (SELECT DISTINCT: deduplicate output rows; self-reference filter author_id = viewer_id)
 - LC #620 — Not Boring Movies (WHERE + modulo for odd/even, `<>` vs `NOT LIKE` without wildcards)
 
 ## String Functions

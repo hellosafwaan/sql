@@ -4,6 +4,11 @@ Cold redo schedule — problems get a revisit date ~3 weeks after first solve.
 
 | Problem | LC | First Solved | Revisit Date | Status |
 |---------|----|--------------|---------------|--------|
+| Recyclable and Low Fat Products | #1757 | 2026-06-17 | 2026-07-08 | ⏳ |
+| Find Customer Referee | #584 | 2026-06-17 | 2026-07-08 | ⏳ |
+| Big Countries | #595 | 2026-06-17 | 2026-07-08 | ⏳ |
+| Article Views I | #1148 | 2026-06-17 | 2026-07-08 | ⏳ |
+| Invalid Tweets | #1683 | 2026-06-17 | 2026-07-08 | ⏳ |
 | Replace Employee ID | #1378 | 2026-06-17 | 2026-07-08 | ⏳ |
 | Product Sales Analysis I | #1068 | 2026-06-17 | 2026-07-08 | ⏳ |
 | Customer Who Visited (No Transactions) | #1581 | 2026-06-17 | 2026-07-08 | ⏳ |

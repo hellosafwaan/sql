@@ -13,16 +13,16 @@ Last updated: 2026-06-22
 | Metric | Count |
 |--------|-------|
 | Total problems | 76 |
-| ✅ Complete | 38 |
+| ✅ Complete | 43 |
 | ⚠️ Needs revisit | 0 |
-| ⏳ Not started | 38 |
+| ⏳ Not started | 33 |
 
 ---
 
 ## Phase Overview
 | # | Phase | Problems | Done | Target Date | Status |
 |---|-------|----------|------|-------------|--------|
-| 1 | SELECT Basics | 6 | 0 | TBD | ⏳ |
+| 1 | SELECT Basics | 6 | 5 | TBD | ⏳ |
 | 2 | String & Date Functions | 5 | 4 | TBD | ⏳ |
 | 3 | Basic Aggregation Functions | 6 | 5 | TBD | ⏳ |
 | 4 | Sorting and Grouping | 5 | 1 | TBD | ⏳ |
@@ -40,11 +40,11 @@ Last updated: 2026-06-22
 | # | Problem | Difficulty | LC | Pattern | Status | Solved | Learnings |
 |---|---------|------------|----|---------|--------|--------|-----------|
 | 1 | Combine Two Tables | Easy | [#175](https://leetcode.com/problems/combine-two-tables/) | SELECT + LEFT JOIN intro | ⏳ | — | — |
-| 2 | Find Customer Referee | Easy | [#584](https://leetcode.com/problems/find-customer-referee/) | WHERE + IS NULL / NOT | ⏳ | — | — |
-| 3 | Big Countries | Easy | [#595](https://leetcode.com/problems/big-countries/) | WHERE + OR | ⏳ | — | — |
-| 4 | Recyclable and Low Fat Products | Easy | [#1757](https://leetcode.com/problems/recyclable-and-low-fat-products/) | WHERE + AND | ⏳ | — | — |
-| 5 | Invalid Tweets | Easy | [#1683](https://leetcode.com/problems/invalid-tweets/) | WHERE + LENGTH | ⏳ | — | — |
-| 6 | Article Views I | Easy | [#1148](https://leetcode.com/problems/article-views-i/) | SELECT DISTINCT | ⏳ | — | — |
+| 2 | Find Customer Referee | Easy | [#584](https://leetcode.com/problems/find-customer-referee/) | WHERE + IS NULL / NOT | ✅ | 2026-06-17 | [learnings](queries/584-find-customer-referee/learnings.md) |
+| 3 | Big Countries | Easy | [#595](https://leetcode.com/problems/big-countries/) | WHERE + OR | ✅ | 2026-06-17 | [learnings](queries/595-big-countries/learnings.md) |
+| 4 | Recyclable and Low Fat Products | Easy | [#1757](https://leetcode.com/problems/recyclable-and-low-fat-products/) | WHERE + AND | ✅ | 2026-06-17 | [learnings](queries/1757-recyclable-and-low-fat-products/learnings.md) |
+| 5 | Invalid Tweets | Easy | [#1683](https://leetcode.com/problems/invalid-tweets/) | WHERE + LENGTH | ✅ | 2026-06-17 | [learnings](queries/1683-invalid-tweets/learnings.md) |
+| 6 | Article Views I | Easy | [#1148](https://leetcode.com/problems/article-views-i/) | SELECT DISTINCT | ✅ | 2026-06-17 | [learnings](queries/1148-article-views-i/learnings.md) |
 
 ## Phase 2 — String & Date Functions ⏳
 

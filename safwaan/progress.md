@@ -57,6 +57,14 @@ For full curriculum and problem status → [TRACKER.md](../TRACKER.md)
 - ✅ LC #619 — Biggest Single Number (bonus)
 - ✅ LC #1045 — Customers Who Bought All Products (bonus)
 
+## Previously Completed (2026-06-17 — Pre-session warmup, Phase 1 batch)
+
+- ✅ LC #1757 — Recyclable and Low Fat Products (Phase 1) — WHERE + AND
+- ✅ LC #584 — Find Customer Referee (Phase 1) — NULL trap: IS NULL OR != 2
+- ✅ LC #595 — Big Countries (Phase 1) — WHERE + OR
+- ✅ LC #1148 — Article Views I (Phase 1) — SELECT DISTINCT + self-reference filter
+- ✅ LC #1683 — Invalid Tweets (Phase 1) — WHERE + LENGTH
+
 ## Previously Completed (2026-06-17 — Sessions 1–4)
 - ✅ LC #1378 — Replace Employee ID With The Unique Identifier (Phase 2)
 - ✅ LC #1068 — Product Sales Analysis I (Phase 6)
